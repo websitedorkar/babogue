@@ -20,7 +20,9 @@ const Header = () => {
                                 <SearchForm />
                             </div>
                             <div className="header__logo text-center flex items-center justify-center">
-                                <Link href={'/'} className='inline-block max-w-[40%]'> <Image src={LOGO} alt={"LOGO"} className='' /></Link>
+                                <Link href={'/'} className='inline-block max-w-[40%]'>
+                                    <Image src={LOGO} alt={"LOGO"} className='' />
+                                </Link>
                             </div>
                             <div className="header__rightbar text-end">
                                 <Rightbar />

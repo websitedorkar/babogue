@@ -110,4 +110,59 @@ const menus: MenuJSON[] = [
   },
 ];
 
-export { menus };
+interface ButtonJSON {
+  id: number;
+  type: "button";
+  btn_label: string;
+  btn_url: string;
+  btn_style: string;
+}
+
+interface CartIconJSON {
+  id: number;
+  type: "cart_icon";
+  label: string;
+  btn_url: string;
+}
+
+interface IconBoxJSON {
+  id: number;
+  type: "icon_box";
+  label: string;
+  text: string;
+  slug: string;
+}
+
+type RightbarJSON = ButtonJSON | CartIconJSON | IconBoxJSON;
+
+const rightbars: RightbarJSON[] = [
+  {
+    id: 1,
+    type: 'button',
+    btn_label: 'Login',
+    btn_url: '/login',
+    btn_style: 'outline',
+  },
+  {
+    id: 2,
+    type: 'button',
+    btn_label: 'Register',
+    btn_url: '/register',
+    btn_style: 'default',
+  },
+  {
+    id: 3,
+    type: 'cart_icon',
+    label: 'My Cart',
+    btn_url: '/my-cart',
+  },
+  {
+    id: 4,
+    type: 'icon_box',
+    label: 'Call Us',
+    text: '+353 877800164',
+    slug: 'mailto:353877800164',
+  }
+]
+
+export { menus, rightbars };
