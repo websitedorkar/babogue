@@ -6,6 +6,7 @@ import AnnouncementBar from './AnnouncementBar';
 import SearchForm from '@/forms/SearchForm';
 import Rightbar from './Rightbar';
 import Navbar from './Navbar';
+import Link from 'next/link';
 
 const Header = () => {
     return (
@@ -19,7 +20,7 @@ const Header = () => {
                                 <SearchForm />
                             </div>
                             <div className="header__logo text-center flex items-center justify-center">
-                                <Image src={LOGO} alt={"LOGO"} className='max-w-[40%]' />
+                                <Link href={'/'} className='inline-block max-w-[40%]'> <Image src={LOGO} alt={"LOGO"} className='' /></Link>
                             </div>
                             <div className="header__rightbar text-end">
                                 <Rightbar />

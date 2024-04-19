@@ -1,121 +1,113 @@
-import Gallery_1 from './img/gallery-1.svg';
-import Gallery_2 from './img/gallery-2.svg';
+import Baby_1 from './img/baby-1.png';
+import Baby_2 from './img/baby-2.png';
+import Baby_3 from './img/baby-3.png';
+import Baby_4 from './img/baby-4.png';
+import Baby_5 from './img/baby-5.png';
 
-interface BaseBlock {
+interface MenuJSON {
   id: number;
-  type: string;
-  heading?: string;
+  title: string;
+  slug: string;
+  submenu?: {
+    thumbnail?: any;
+    title?: string;
+    description?: string;
+    slug: string
+  }[];
   className?: string;
 }
 
-interface NewsletterBlock extends BaseBlock {
-  type: 'newsletter';
-  description?: string;
-  placeholder: string;
-}
-
-interface LinkListBlock extends BaseBlock {
-  type: 'linklist';
-  list: { name: string; slug: string }[];
-}
-
-interface GalleryBlock extends BaseBlock {
-  type: 'gallery';
-  list: { image: string }[];
-}
-
-type BlocksJSON = NewsletterBlock | LinkListBlock | GalleryBlock;
-
-const blocks: BlocksJSON[] = [
+const menus: MenuJSON[] = [
   {
     id: 1,
-    type: "newsletter",
-    heading: "Join Newsletter",
-    description: "Subscribe to be informed on offers, discounts and coupons straight to your inbox",
-    placeholder: "your@email.com",
-  },
-  {
-    id: 2,
-    type: 'linklist',
-    heading: "Babogue",
-    list: [
+    title: "Courses",
+    slug: "courses",
+    submenu: [
       {
-        name: "Home",
-        slug: '/home',
-      },
-      {
-        name: "Partnerships",
-        slug: '/partnerships',
-      },
-      {
-        name: "Reviews",
-        slug: '/reviews',
-      },
-      {
-        name: "About",
-        slug: '/about',
-      },
-      {
-        name: "Contact us",
-        slug: '/contact-us',
-      },
-    ]
-  },
-  {
-    id: 3,
-    type: 'linklist',
-    heading: "Sleep Series",
-    list: [
-      {
-        name: "0-6 Months Sleep Series",
+        thumbnail: Baby_1,
+        title: "0-6 Months",
+        description: "The 0-6 Months Sleep Series gives you 6 months access to our Newborn and 4-6 Months Sleep Series courses.",
         slug: '/0-6-months',
-      },
-      {
-        name: "6-18 Months Sleep Series",
-        slug: '/6-18-months',
-      },
-      {
-        name: "Toddler Sleep Series",
-        slug: '/toddler-sleep-series',
-      },
-      {
-        name: "Older Child Sleep Series",
-        slug: '/older-child-sleep-series',
-      },
-      {
-        name: "The Complete Sleep Series",
-        slug: '/the-complete-sleep-series',
-      },
+      }, {
+        thumbnail: Baby_2,
+        title: "0-6 Months",
+        description: "The 0-6 Months Sleep Series gives you 6 months access to our Newborn and 4-6 Months Sleep Series courses.",
+        slug: '/0-6-months',
+      }, {
+        thumbnail: Baby_3,
+        title: "0-6 Months",
+        description: "The 0-6 Months Sleep Series gives you 6 months access to our Newborn and 4-6 Months Sleep Series courses.",
+        slug: '/0-6-months',
+      }, {
+        thumbnail: Baby_4,
+        title: "0-6 Months",
+        description: "The 0-6 Months Sleep Series gives you 6 months access to our Newborn and 4-6 Months Sleep Series courses.",
+        slug: '/0-6-months',
+      }, {
+        thumbnail: Baby_5,
+        title: "0-6 Months",
+        description: "The 0-6 Months Sleep Series gives you 6 months access to our Newborn and 4-6 Months Sleep Series courses.",
+        slug: '/0-6-months',
+      }
     ]
-  },
-  {
-    id: 4, // Unique ID for this block
-    type: 'linklist',
-    heading: "One to One",
-    list: [
+  }, {
+    id: 2,
+    title: "One To One",
+    slug: "one-to-one",
+    submenu: [
       {
-        name: "Virtual Sleep Solution",
-        slug: '/virtual-sleep-solution',
-      },
-      {
-        name: "Simple Sleep Solution",
-        slug: '/simple-sleep-solution',
+        thumbnail: Baby_1,
+        title: "0-6 Months",
+        description: "The 0-6 Months Sleep Series gives you 6 months access to our Newborn and 4-6 Months Sleep Series courses.",
+        slug: '/0-6-months',
+      }, {
+        thumbnail: Baby_2,
+        title: "0-6 Months",
+        description: "The 0-6 Months Sleep Series gives you 6 months access to our Newborn and 4-6 Months Sleep Series courses.",
+        slug: '/0-6-months',
+      }, {
+        thumbnail: Baby_3,
+        title: "0-6 Months",
+        description: "The 0-6 Months Sleep Series gives you 6 months access to our Newborn and 4-6 Months Sleep Series courses.",
+        slug: '/0-6-months',
+      }, {
+        thumbnail: Baby_4,
+        title: "0-6 Months",
+        description: "The 0-6 Months Sleep Series gives you 6 months access to our Newborn and 4-6 Months Sleep Series courses.",
+        slug: '/0-6-months',
+      }, {
+        thumbnail: Baby_5,
+        title: "0-6 Months",
+        description: "The 0-6 Months Sleep Series gives you 6 months access to our Newborn and 4-6 Months Sleep Series courses.",
+        slug: '/0-6-months',
       }
     ]
   },
   {
-    id: 5, // Unique ID for this block
-    type: 'gallery',
-    heading: "Member & certified",
-    list: [
-      {
-        image: Gallery_1 as string,
-      },
-      {
-        image: Gallery_2 as string,
-      },
-    ],
+    id: 3,
+    title: "Partnerships",
+    slug: "partnerships",
+  },
+  {
+    id: 4,
+    title: "Reviews",
+    slug: "reviews",
+  },
+  {
+    id: 5,
+    title: "Blog",
+    slug: "blog",
+  },
+  {
+    id: 6,
+    title: "About Us",
+    slug: "about-us",
+  },
+  {
+    id: 7,
+    title: "Contact Us",
+    slug: "contact-us",
   },
 ];
 
-export { blocks };
+export { menus };

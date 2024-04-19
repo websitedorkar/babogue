@@ -4,6 +4,8 @@ import Image__1 from './img/1.png';
 import Image__2 from './img/2.png';
 import Image__3 from './img/3.png';
 import Image__4 from './img/4.png';
+import { feed } from './data.feed';
+import Image from 'next/image';
 
 const InstagramFeed = () => {
     return (
@@ -15,23 +17,17 @@ const InstagramFeed = () => {
                 <h5 className='text-3xl'>Hop over to Instagram and tag us babogue_sleep or use #babogue_sleep</h5>
             </div>
             <div className="container">
-                <div className="grid grid-cols-4 gap-4">
-                    <div className="grid__item">
-                        <img src={Image__1.src} alt="Instagram" />
-                    </div>
-                    <div className="grid__item">
-                        <img src={Image__2.src} alt="Instagram" />
-                    </div>
-                    <div className="grid__item">
-                        <img src={Image__3.src} alt="Instagram" />
-                    </div>
-                    <div className="grid__item">
-                        <img src={Image__4.src} alt="Instagram" />
-                    </div>
-                </div>
+                {feed &&
+                    <div className="grid grid-cols-4 gap-4">
+                        {feed.map(item => (
+                            <div key={item.id} className="grid__item">
+                                {item.thumbnail && <Image src={item.thumbnail} alt={item.title} />}
+                            </div>
+                        ))}
+                    </div>}
             </div>
         </section>
     )
 }
 
-export default InstagramFeed
+export default InstagramFeed;
