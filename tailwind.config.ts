@@ -39,7 +39,7 @@ const config = {
       '3xl': '28px',
       '4xl': '32px',
       '5xl': '48px',
-      '6xl': '70px',
+      '6xl': '53px',
     },
     extend: {
       colors: {

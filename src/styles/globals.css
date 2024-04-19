@@ -95,7 +95,7 @@
 
 /* HERO CAROUSEL */
 .hero-carousel .swiper-pagination {
-  --swiper-pagination-bullet-size: 20px;
+  --swiper-pagination-bullet-size: 14px;
   --swiper-pagination-bullet-inactive-opacity: 0.3;
   @apply flex flex-col gap-6 h-full justify-center items-end max-w-[100px] !start-auto !right-0 !p-4
 }

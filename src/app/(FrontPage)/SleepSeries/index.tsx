@@ -13,15 +13,15 @@ const SleepSeries = () => {
         <section className='py-[100px] bg-white relative'>
             <div className="container max-w-[1230px]">
                 <div className="text-center mb-10">
-                    <div className='max-w-[1100px] mx-auto'>
-                        <Image src={LOGO} alt="logo" className='inline-block' />
+                    <div className='max-w-[821px] mx-auto'>
+                        <Image src={LOGO} alt="logo" className='inline-block mb-3' />
                         <p>We have helped thousands of families globally achieve the Gift of Sleep in their homes. In fact, 94% of families who use our Sleep Series courses report better sleep as a result.</p>
                     </div>
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 2xl:grid-cols-5 gap-y-10 gap-[20px] text-center">
                     {productsdata && productsdata.map(product => (
                         <div className="border border-solid border-border rounded-[16px] p-3 pt-6 relative z-[1] bg-white" key={product.id}>
-                            {product.badge && <div className=' absolute -top-[20px] start-0 w-full'><span className="text-[16px] bg-primary inline-flex items-center rounded-b-xl px-5 min-w-[135px] justify-center py-2 leading-4 min-h-[36px] text-white relative before:content-[''] before:z-[-1] before:absolute before:top-0 before:w-0 before:h-0 before:border-l-[11px] before:border-l-[#947761] before:border-opacity-50 before:-end-[11px] before:border-t-[20px] before:border-y-transparent before:border-solid after:content-[''] after:z-[-1] after:absolute after:top-0 after:w-0 after:h-0 after:border-r-[11px] after:border-r-[#947761] after:border-opacity-50 after:-start-[11px] after:border-t-[20px] after:border-y-transparent after:border-solid">{product.badge}</span></div>}
+                            {product.badge && <div className='absolute -top-[20px] start-0 w-full'><span className={`text-xs relative bg-primary inline-flex items-center rounded-b-xl px-5 min-w-[135px] justify-center py-2 leading-4 min-h-[36px] text-white before:content-[''] before:z-[-1] before:absolute before:top-0 before:w-0 before:h-0 before:border-l-[11px] before:border-l-[#947761] before:border-opacity-50 before:-end-[11px] before:border-t-[20px] before:border-y-transparent before:border-solid after:content-[''] after:z-[-1] after:absolute after:top-0 after:w-0 after:h-0 after:border-r-[11px] after:border-r-[#947761] after:border-opacity-50 after:-start-[11px] after:border-t-[20px] after:border-y-transparent after:border-solid`}>{product.badge}</span></div>}
 
                             {isMobile ?
                                 <div className="grid grid-cols-[3fr_6fr] gap-x-4 items-center">
@@ -53,13 +53,11 @@ const SleepSeries = () => {
                                     </div>
                                 </div>
                             }
-
-
                         </div>
                     ))}
                 </div>
             </div>
-        </section>
+        </section >
     )
 }
 

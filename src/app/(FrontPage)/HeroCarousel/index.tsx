@@ -46,13 +46,13 @@ const HeroCarousel = () => {
                                     <SwiperSlide key={slide.id}>
                                         <div className="container">
                                             <div className="grid grid-cols-[0.75fr_1fr] items-end">
-                                                <div className="slide__content space-y-4 py-[150px] min-h-[85vh]">
-                                                    {slide.caption && <h6 className='text-primary text-3xl font-normal'>{slide.caption}</h6>}
+                                                <div className="slide__content space-y-4 pt-[120px] pb-[150px] min-h-[70vh]">
+                                                    {slide.caption && <h6 className='text-primary text-xl font-normal'>{slide.caption}</h6>}
                                                     {slide.heading && <h6 className='text-dark text-6xl leading-[1.1] font-bold'>{slide.heading}</h6>}
                                                     {slide.list && <div className='text-dark flex flex-col gap-4'>{slide.list.map((item, i) => (
                                                         <li className='flex gap-4' key={i}>
-                                                            {item.icon && <span className='min-w-[27px] mt-3'><Image src={item.icon} alt="icon" /></span>}
-                                                            {item.text && <div className='text-sm'>{item.text}</div>}
+                                                            {item.icon && <span className='min-w-[18px] mt-3'><Image src={item.icon} alt="icon" /></span>}
+                                                            {item.text && <div className='text-base'>{item.text}</div>}
                                                         </li>
                                                     ))}</div>}
                                                     {slide.description && <div className='text-dark text-sm'>{slide.description}</div>}
@@ -61,9 +61,9 @@ const HeroCarousel = () => {
                                                     </div>}
                                                 </div>
                                                 <div className="slide__banner relative">
-                                                    <Image src={slide.banner} alt="Banner" className='max-w-[90%]' />
-                                                    <Image src={Stars_1} alt="Stars 1" className='absolute -top-[7%] start-[5%] max-w-[30%]' />
-                                                    <Image src={Stars_2} alt="Stars 2" className='absolute bottom-[20%] max-w-[30%] -end-10' />
+                                                    <Image src={slide.banner} alt="Banner" className='max-w-[95%]' />
+                                                    <Image src={Stars_1} alt="Stars 1" className='absolute -top-[10%] start-[4%] max-w-[20%]' />
+                                                    <Image src={Stars_2} alt="Stars 2" className='absolute bottom-[20%] max-w-[20%] -end-[15%]' />
                                                 </div>
                                             </div>
                                         </div>
