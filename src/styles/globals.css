@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+  body {
+    @apply bg-white text-base leading-[1.5] text-dark;
+  }
+
+  .h2 {
+    @apply text-5xl font-bold
+  }
+
+  .wave--animation {
+    @apply relative before:content-[""] before:w-full before:h-full before:bg-white before:absolute before:rounded-full before:z-[-1] before:top-1/2 before:start-1/2 before:-translate-x-1/2 before:-translate-y-1/2;
+  }
+}
+
+.wave--animation:before {
+  -webkit-animation: glowing 1.5s linear infinite;
+  -moz-animation: glowing 1.5s linear infinite;
+  -o-animation: glowing 1.5s linear infinite;
+  animation: glowing 1.5s linear infinite;
+}
+
+
+
+@-webkit-keyframes glowing {
+  0% {
+    height: 100%;
+    width: 100%;
+  }
+
+  100% {
+    height: 150%;
+    width: 150%;
+    opacity: 0;
+  }
+}
+
+@-moz-keyframes glowing {
+  0% {
+    height: 100%;
+    width: 100%;
+  }
+
+  100% {
+    height: 150%;
+    width: 150%;
+    opacity: 0;
+  }
+}
+
+@-o-keyframes glowing {
+  0% {
+    height: 100%;
+    width: 100%;
+  }
+
+  100% {
+    height: 150%;
+    width: 150%;
+    opacity: 0;
+  }
+}
+
+@keyframes glowing {
+  0% {
+    height: 100%;
+    width: 100%;
+  }
+
+  100% {
+    height: 150%;
+    width: 150%;
+    opacity: 0;
+  }
+}
+
+/* SLIDER */
+.slide-equal-height .swiper-slide {
+  @apply h-auto;
+}
+
+/* Header */
+.header__navbar {
+  @apply w-full
+}
+
+.header__navbar nav,
+.header__navbar nav>div {
+  @apply w-full max-w-full
+}
+
+/* HERO CAROUSEL */
+.hero-carousel .swiper-pagination {
+  --swiper-pagination-bullet-size: 20px;
+  --swiper-pagination-bullet-inactive-opacity: 0.3;
+  @apply flex flex-col gap-6 h-full justify-center items-end max-w-[100px] !start-auto !right-0 !p-4
+}
+
+.hero-carousel .swiper-pagination .swiper-pagination-bullet {
+  @apply bg-dark relative before:content-[''] before:absolute before:border-2 before:border-solid before:border-dark before:w-full before:h-full before:start-1/2 before:top-1/2 before:-translate-y-1/2 before:-translate-x-1/2 before:rounded-full before:transition-all before:ease-linear before:duration-150
+}
+
+.hero-carousel .swiper-pagination .swiper-pagination-bullet-active {
+  @apply before:w-[calc(100%+10px)] before:h-[calc(100%+10px)]
+}
