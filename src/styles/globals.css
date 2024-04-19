@@ -107,3 +107,11 @@
 .hero-carousel .swiper-pagination .swiper-pagination-bullet-active {
   @apply before:w-[calc(100%+10px)] before:h-[calc(100%+10px)]
 }
+
+.rating--list {
+  @apply flex gap-1 text-sm
+}
+
+.rating--list svg {
+  @apply w-[16px]
+}

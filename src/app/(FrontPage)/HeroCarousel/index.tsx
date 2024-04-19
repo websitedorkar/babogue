@@ -6,7 +6,7 @@ import TopShape from './img/shape-top.svg';
 import BottomShape from './img/shape-bottom.svg';
 import babySleeping from './img/babySleeping.svg';
 
-import BG from './img/bg.png';
+import Pattern from './img/bg-pattern.svg';
 import Stars_1 from './img/stars-1.png';
 import Stars_2 from './img/stars-2.png';
 
@@ -24,7 +24,7 @@ import { Button } from '@/components/ui/button';
 
 const HeroCarousel = () => {
     return (
-        <section className='pt-[50px] bg-columbia-blue pb-0 text-white relative overflow-hidden bg-cover bg-top-center hero-carousel' style={{ backgroundImage: `url(${BG.src})` }}>
+        <section className='pt-[50px] bg-columbia-blue pb-0 text-white relative overflow-hidden hero-carousel' style={{ backgroundImage: `url(${Pattern.src})` }}>
             <Image src={TopShape} alt={"Shape Top"} className='-top-[1px] start-0 end-0 w-full absolute' />
             <Image src={BottomShape} alt={"Shape Top"} className='-bottom-[1px] start-0 end-0 w-full absolute z-[6]' />
 

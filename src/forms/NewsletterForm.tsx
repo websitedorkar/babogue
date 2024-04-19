@@ -38,7 +38,7 @@ export const NewsletterForm: React.FC<{ description: string, placeholder: string
     };
 
     return (
-        <div className='max-w-[275px] w-full space-y-5'>
+        <div className='lg:max-w-[275px] w-full space-y-5'>
             <form onSubmit={handleSubmit} className='border border-border rounded-full flex items-center mb-4 gap-3 ps-7 pe-2 py-2 h-[56px]'>
                 <input
                     type='email'

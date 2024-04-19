@@ -1,6 +1,14 @@
 import Gallery_1 from './img/gallery-1.svg';
 import Gallery_2 from './img/gallery-2.svg';
 
+import SOCIAL__FACEBOOK from './img/social--facebook.svg';
+import SOCIAL__TWITTER from './img/social--twitter.svg';
+import SOCIAL__LINKEDIN from './img/social--linkedin.svg';
+import SOCIAL__INSTAGRAM from './img/social--instagram.svg';
+import SOCIAL__YOUTUBE from './img/social--youtube.svg';
+import SOCIAL__PINTEREST from './img/social--pinterest.svg';
+import SOCIAL__TIKTOK from './img/social--tiktok.svg';
+
 interface BaseBlock {
   id: number;
   type: string;
@@ -118,4 +126,58 @@ const blocks: BlocksJSON[] = [
   },
 ];
 
-export { blocks };
+
+interface SocialsJSON {
+  id: number;
+  icon: any;
+  title: string;
+  slug: string;
+  className?: string;
+}
+
+const socials: SocialsJSON[] = [
+  {
+    id: 1,
+    icon: SOCIAL__FACEBOOK,
+    title: "Facebook",
+    slug: '/facebook'
+  },
+  {
+    id: 1,
+    icon: SOCIAL__TWITTER,
+    title: "Twitter",
+    slug: '/twitter'
+  },
+  {
+    id: 1,
+    icon: SOCIAL__LINKEDIN,
+    title: "Linkedin",
+    slug: '/linkedin'
+  },
+  {
+    id: 1,
+    icon: SOCIAL__INSTAGRAM,
+    title: "Instagram",
+    slug: '/instagram'
+  },
+  {
+    id: 1,
+    icon: SOCIAL__YOUTUBE,
+    title: "Youtube",
+    slug: '/youtube'
+  },
+  {
+    id: 1,
+    icon: SOCIAL__PINTEREST,
+    title: "Pinterest",
+    slug: '/pinterest'
+  },
+  {
+    id: 1,
+    icon: SOCIAL__TIKTOK,
+    title: "Tiktok",
+    slug: '/tiktok'
+  },
+]
+
+export { blocks, socials };
