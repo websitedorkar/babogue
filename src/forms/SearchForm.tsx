@@ -27,21 +27,10 @@ const SearchForm: React.FC = () => {
     // Show alert with the submitted search query
     alert(`Submitted search query: ${searchQuery}`);
 
-    // Reset the form
     setSearchQuery('');
-
-    // Optionally, you can clear the input field programmatically
-    // const input = document.querySelector('input[name="searchQuery"]');
-    // if (input) input.value = '';
-
-    // Optional: Simulate loading state for 2 seconds
-    // setLoading(true);
-    // setTimeout(() => {
-    //     setLoading(false);
-    // }, 2000);
   }
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className='border border-border rounded-full flex items-center gap-3 max-w-[390px] px-7 py-2 h-[65px]'>
+    <form onSubmit={handleSubmit(onSubmit)} className='border border-border rounded-full flex items-center gap-3 max-w-[290px] px-6 py-2 h-[48px]'>
       <input
         type='text'
         {...register('searchQuery')}
@@ -51,7 +40,7 @@ const SearchForm: React.FC = () => {
         placeholder='Search course...'
       />
       <button type='submit' className='p-0 shadow-none border-0 outline-none'>
-        <Image src={SearchIcon} alt='Submit Now' />
+        <Image src={SearchIcon} alt='Submit Now' className='w-[20px] min-w-[20px]' />
       </button>
     </form>
   );

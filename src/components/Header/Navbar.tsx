@@ -27,7 +27,7 @@ const NavigationLink: React.FC<{ href: string; children: React.ReactNode }> = ({
 
 const Navbar: React.FC = () => {
     return (
-        <NavigationMenu className="py-4">
+        <NavigationMenu className="pt-4">
             {menus &&
                 <NavigationMenuList className="justify-between">
                     {menus.map(menuItem => (
@@ -36,22 +36,22 @@ const Navbar: React.FC = () => {
                                 <>
                                     {menuItem.title && <NavigationMenuTrigger>{menuItem.title}</NavigationMenuTrigger>}
                                     <NavigationMenuContent>
-                                        <ul className="grid gap-5 p-6 md:w-[400px] lg:w-[1250px] lg:grid-cols-2">
+                                        <ul className="grid gap-5 p-6 md:w-[400px] lg:w-[935px] lg:grid-cols-2">
                                             {menuItem.submenu.map((sub, i) => (
                                                 <li key={i}>
                                                     <NavigationMenuLink asChild>
                                                         <Link
-                                                            className="border border-border p-4 rounded-[16px] grid gap-4 items-center grid-cols-[130px_1fr]"
+                                                            className="border border-border p-4 rounded-[16px] grid gap-4 items-center grid-cols-[100px_1fr]"
                                                             href={menuItem.slug}
                                                         >
                                                             <div>
-                                                                {sub.thumbnail && <div className='w-[130px] h-[130px] min-[130px] border-[#C1DED5] rounded-full flex items-center justify-center p-[6px] mx-auto border-dashed border-2'>
+                                                                {sub.thumbnail && <div className='w-[100px] h-[100px] min-[100px] border-[#C1DED5] rounded-full flex items-center justify-center p-[6px] mx-auto border-dashed border-2'>
                                                                     <Image src={sub.thumbnail} className='inline-block' alt={sub.title ?? ' title'} />
                                                                 </div>}
                                                             </div>
                                                             <div>
-                                                                {sub.thumbnail && <h3 className="text-3xl leading-6 font-bold text-dark mb-3">{sub.title}</h3>}
-                                                                {sub.description && <div className="text-xs leading-7">{sub.description}</div>}
+                                                                {sub.thumbnail && <h3 className="text-xl leading-5 font-bold text-dark mb-2">{sub.title}</h3>}
+                                                                {sub.description && <div className="text-xs leading-5">{sub.description}</div>}
                                                             </div>
                                                         </Link>
                                                     </NavigationMenuLink>

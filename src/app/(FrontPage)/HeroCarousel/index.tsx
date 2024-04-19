@@ -24,9 +24,7 @@ import { Button } from '@/components/ui/button';
 
 const HeroCarousel = () => {
     return (
-        <section className='pt-[50px] bg-columbia-blue pb-0 text-white relative overflow-hidden bg-cover bg-top-center hero-carousel' style={{
-            backgroundImage: `url(${BG.src})`
-        }}>
+        <section className='pt-[50px] bg-columbia-blue pb-0 text-white relative overflow-hidden bg-cover bg-top-center hero-carousel' style={{ backgroundImage: `url(${BG.src})` }}>
             <Image src={TopShape} alt={"Shape Top"} className='-top-[1px] start-0 end-0 w-full absolute' />
             <Image src={BottomShape} alt={"Shape Top"} className='-bottom-[1px] start-0 end-0 w-full absolute z-[6]' />
 
@@ -34,7 +32,7 @@ const HeroCarousel = () => {
                 {slidesdata &&
                     <div>
                         <Swiper
-                            modules={[Pagination,]}
+                            modules={[Pagination]}
                             spaceBetween={40}
                             slidesPerView={1}
                             onSlideChange={() => console.log('slide change')}

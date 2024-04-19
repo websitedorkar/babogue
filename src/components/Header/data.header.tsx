@@ -1,3 +1,7 @@
+import ICON_CART from './img/icon-cart.svg';
+import ICON_HEADPHONE from './img/icon-headphone.svg';
+import ICON_USER from './img/icon-user.svg';
+
 import Baby_1 from './img/baby-1.png';
 import Baby_2 from './img/baby-2.png';
 import Baby_3 from './img/baby-3.png';
@@ -118,22 +122,37 @@ interface ButtonJSON {
   btn_style: string;
 }
 
+interface AuthorJSON {
+  id: number;
+  type: "author";
+  icon: any;
+  label: string;
+  list?: {
+    title: string;
+    slug: string
+    separator?: boolean
+  }[];
+}
+
 interface CartIconJSON {
   id: number;
   type: "cart_icon";
+  icon: any;
   label: string;
+  count: number;
   btn_url: string;
 }
 
 interface IconBoxJSON {
   id: number;
   type: "icon_box";
+  icon: any;
   label: string;
   text: string;
-  slug: string;
+  btn_url: string;
 }
 
-type RightbarJSON = ButtonJSON | CartIconJSON | IconBoxJSON;
+type RightbarJSON = ButtonJSON | CartIconJSON | IconBoxJSON | AuthorJSON;
 
 const rightbars: RightbarJSON[] = [
   {
@@ -143,25 +162,41 @@ const rightbars: RightbarJSON[] = [
     btn_url: '/login',
     btn_style: 'outline',
   },
+  // {
+  //   id: 2,
+  //   type: 'button',
+  //   btn_label: 'Register',
+  //   btn_url: '/register',
+  //   btn_style: 'default',
+  // },
+  // {
+  //   id: 3,
+  //   type: 'author',
+  //   icon: ICON_USER,
+  //   label: 'My Account',
+  //   list: [
+  //     { title: 'My Courses', slug: 'my-courses', },
+  //     { title: 'Profile', slug: 'profile', },
+  //     { title: 'Support', slug: 'support', },
+  //     { title: 'Settings', slug: 'settings', },
+  //     { title: 'Logout', slug: 'logout', separator: true, },
+  //   ],
+  // },
   {
-    id: 2,
-    type: 'button',
-    btn_label: 'Register',
-    btn_url: '/register',
-    btn_style: 'default',
-  },
-  {
-    id: 3,
+    id: 4,
     type: 'cart_icon',
+    icon: ICON_CART,
     label: 'My Cart',
+    count: 2,
     btn_url: '/my-cart',
   },
   {
-    id: 4,
+    id: 5,
     type: 'icon_box',
+    icon: ICON_HEADPHONE,
     label: 'Call Us',
     text: '+353 877800164',
-    slug: 'mailto:353877800164',
+    btn_url: 'mailto:353877800164',
   }
 ]
 

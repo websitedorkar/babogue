@@ -15,7 +15,7 @@ const config = {
       center: true,
       padding: "15px",
       screens: {
-        "2xl": "1640px",
+        "2xl": "1200px",
       },
     },
 
@@ -29,10 +29,12 @@ const config = {
     },
 
     fontSize: {
-      xs: '20px',
-      sm: '21px',
-      base: '24px',
-      xl: '25px',
+      xxs: '13px',
+      xs: '15px',
+      sm: '16px',
+      base: '18px',
+      'lg': '20px',
+      'xl': '21px',
       '2xl': '27px',
       '3xl': '28px',
       '4xl': '32px',
