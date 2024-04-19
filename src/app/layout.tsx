@@ -28,7 +28,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${quicksand.variable} ${roboto.variable}`}>
-
       <body>
         <Header />
         <div>{children}</div>
