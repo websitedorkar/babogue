@@ -8,18 +8,29 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 interface MenuItem {
-  id: string;
+  id: number;
   title: string;
   slug: string;
-  submenu?: MenuItem[];
+  submenu?: {
+    thumbnail?: any;
+    title?: string;
+    description?: string;
+    slug: string
+  }[];
 }
 
+interface SubMenuItem {
+  thumbnail?: any;
+  title?: string;
+  description?: string;
+  slug: string
+}
 const variants = {
   open: { opacity: 1, height: 'auto' },
   closed: { opacity: 0, height: 0 },
 };
 
-const SubmenuItem: React.FC<{ submenuItem: MenuItem }> = ({ submenuItem }) => (
+const SubmenuItem: React.FC<{ submenuItem: SubMenuItem }> = ({ submenuItem }) => (
   <li>
     <Link href={submenuItem.slug} className="text-base py-[13px] flex items-center leading-6 font-normal font-roboto">
       {submenuItem.title}
@@ -59,7 +70,7 @@ const MenuLink: React.FC<{ menu: MenuItem }> = ({ menu }) => {
           className="pl-4 overflow-hidden"
         >
           {menu.submenu.map((submenuItem, index) => (
-            <SubmenuItem key={submenuItem.id} submenuItem={submenuItem} />
+            <SubmenuItem key={index} submenuItem={submenuItem} />
           ))}
         </motion.ul>
       )}
