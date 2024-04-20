@@ -59,6 +59,9 @@ const ParentsReviews = () => {
                                     slidesPerView: 2,
                                 },
                                 865: {
+                                    slidesPerView: 3
+                                },
+                                1399: {
                                     slidesPerView: 4
                                 },
                             }}
@@ -99,7 +102,7 @@ const ParentsReviews = () => {
                             })}
                         </Swiper>
 
-                        <div className='absolute top-1/2 z-10 start-0 flex items-center justify-between w-full end-0'>
+                        <div className='absolute top-1/2 z-10 start-0 flex items-center justify-between w-full end-0 hidden'>
                             <span className='parents-review-carousel--prev cursor-pointer opacity-30 w-[38px] min-w-[38px] -ms-[75px] hover:opacity-75 transition-all duration-300 ease-linear inline-flex'><Image src={BackIcon} alt={'Back Icon'} /></span>
                             <span className='parents-review-carousel--next cursor-pointer opacity-30 w-[38px] min-w-[38px] -me-[75px] hover:opacity-75 transition-all duration-300 ease-linear inline-flex'><Image src={NextIcon} alt={'Back Icon'} /></span>
                         </div>

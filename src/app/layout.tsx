@@ -32,7 +32,7 @@ export default function RootLayout({
     <html lang="en" className={`${quicksand.variable} ${roboto.variable}`}>
       <body>
         <Header />
-        <div>{children}</div>
+        <div className="overflow-hidden">{children}</div>
         <Footer />
       </body>
     </html>

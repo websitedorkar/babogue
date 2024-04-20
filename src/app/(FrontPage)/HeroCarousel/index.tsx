@@ -24,7 +24,7 @@ import { Button } from '@/components/ui/button';
 
 const HeroCarousel = () => {
     return (
-        <section className='pt-[50px] bg-columbia-blue pb-0 text-white relative overflow-hidden hero-carousel' style={{ backgroundImage: `url(${Pattern.src})` }}>
+        <section className='pt-[50px] bg-columbia-blue pb-0 text-white relative overflow-hidden hero-carousel hidden' style={{ backgroundImage: `url(${Pattern.src})` }}>
             <Image src={TopShape} alt={"Shape Top"} className='-top-[1px] start-0 end-0 w-full absolute' />
             <Image src={BottomShape} alt={"Shape Top"} className='-bottom-[1px] start-0 end-0 w-full absolute z-[6]' />
 
@@ -45,7 +45,7 @@ const HeroCarousel = () => {
                                 return (
                                     <SwiperSlide key={slide.id}>
                                         <div className="container">
-                                            <div className="grid grid-cols-[0.75fr_1fr] items-end">
+                                            <div className="grid lg:grid-cols-[0.75fr_1fr] items-end">
                                                 <div className="slide__content space-y-4 pt-[120px] pb-[150px] min-h-[70vh]">
                                                     {slide.caption && <h6 className='text-primary text-xl font-normal'>{slide.caption}</h6>}
                                                     {slide.heading && <h6 className='text-dark text-6xl leading-[1.1] font-bold'>{slide.heading}</h6>}

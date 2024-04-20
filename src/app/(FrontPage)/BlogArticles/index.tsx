@@ -22,6 +22,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 
 const BlogArticles = () => {
+
     return (
         <section className='pt-[100px] pb-[120px] bg-sky relative overflow-hidden'>
             <Image src={TopShape} alt={"Shape Top"} className='-top-[1px] start-0 end-0 w-full absolute' />
@@ -88,7 +89,7 @@ const BlogArticles = () => {
                             })}
                         </Swiper>
 
-                        <div className='absolute top-1/2 z-10 start-0 flex items-center justify-between w-full end-0'>
+                        <div className='absolute top-1/2 z-10 start-0 flex items-center justify-between w-full end-0 hidden'>
                             <span className='blogs-carousel--prev cursor-pointer opacity-30 w-[38px] min-w-[38px] -ms-[75px] hover:opacity-75 transition-all duration-300 ease-linear inline-flex'><Image src={BackIcon} alt={'Back Icon'} /></span>
                             <span className='blogs-carousel--next cursor-pointer opacity-30 w-[38px] min-w-[38px] -me-[75px] hover:opacity-75 transition-all duration-300 ease-linear inline-flex'><Image src={NextIcon} alt={'Back Icon'} /></span>
                         </div>
