@@ -15,6 +15,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import PlayButton from './playButton';
 
 const SleepConsultant = () => {
     const isMobile = useMediaQuery("(max-width: 768px)");
@@ -32,9 +33,7 @@ const SleepConsultant = () => {
                         <div className="relative">
                             <Image src={Banner} alt='banner' />
                             {/* Play Button */}
-                            <Link href={'#'} className='wave--animation max-w-[65px] lg:max-w-[80px] absolute top-1/2 start-1/2 -translate-x-1/2 -translate-y-1/2'>
-                                <Image src={PlayIcon} alt="Play" />
-                            </Link>
+                            <PlayButton />
 
                         </div>
                     </div>
