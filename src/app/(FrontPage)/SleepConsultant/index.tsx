@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react';
 import Banner from './img/banner.png';
 import PlayIcon from './img/play.svg';
@@ -5,38 +7,78 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from "@/components/ui/button";
 import { consultantsdata } from './data.consultants';
+import { useMediaQuery } from '@/hooks/use-media-query';
+// Import Swiper React components
+import { Pagination } from 'swiper/modules';
+import { Swiper, SwiperSlide } from 'swiper/react';
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 const SleepConsultant = () => {
+    const isMobile = useMediaQuery("(max-width: 768px)");
     return (
-        <section className='pt-[50px] pb-[100px] bg-white relative'>
+        <section className='pt-[50px] pb-[100px] bg-white relative px-[30px] md:px-0'>
             <div className="container">
-                <div className="grid grid-cols-1 md:grid-cols-2 items-center gap-4 xl:gap-x-[90px]">
-                    <div className="grid__item md:order-2">
+                <div className="grid grid-cols-1 gap-y-[30px] lg:grid-cols-2 items-center gap-4 xl:gap-x-[90px]">
+                    <div className="grid__item lg:order-2">
+                        {isMobile &&
+                        <div className="mb-10 text-center">
+                            <h5 className='text-sm lg:text-xl font-medium mb-3 text-primary-light'>Certified Child Sleep Consultant</h5>
+                            <h2 className='text-2xl lg:text-5xl leading-6 font-bold mb-1 text-dark'>Erica Hargaden</h2>
+                        </div>
+                        }
                         <div className="relative">
                             <Image src={Banner} alt='banner' />
                             {/* Play Button */}
-                            <Link href={'#'} className='wave--animation max-w-[80px] absolute top-1/2 start-1/2 -translate-x-1/2 -translate-y-1/2'>
+                            <Link href={'#'} className='wave--animation max-w-[65px] lg:max-w-[80px] absolute top-1/2 start-1/2 -translate-x-1/2 -translate-y-1/2'>
                                 <Image src={PlayIcon} alt="Play" />
                             </Link>
 
                         </div>
                     </div>
                     <div className="grid-item">
+                        {!isMobile && 
                         <div className="mb-10">
-                            <h5 className='text-xl font-medium mb-3 text-primary-light'>Certified Child Sleep Consultant</h5>
-                            <h2 className='text-5xl leading-6 font-bold mb-1 text-dark'>Erica Hargaden</h2>
+                            <h5 className='text-sm lg:text-xl font-medium mb-3 text-primary-light'>Certified Child Sleep Consultant</h5>
+                            <h2 className='text-2xl lg:text-5xl leading-6 font-bold mb-1 text-dark'>Erica Hargaden</h2>
                         </div>
-                        {consultantsdata && <div>
-                            <ul className="flex flex-col gap-y-8 mb-10">
+                        }
+                        {consultantsdata && isMobile ? <div>
+
+                            <Swiper
+                            modules={[Pagination]}
+                            spaceBetween={15}
+                            slidesPerView={1}
+                            onSlideChange={() => console.log('slide change')}
+                            onSwiper={(swiper) => console.log(swiper)}
+                            className='default-pagination mb-6'
+                            // install Swiper modules
+                            pagination={{ clickable: true }}
+                        >
+                            {consultantsdata.map(item => (
+                                <SwiperSlide key={item.id} className='text-center space-y-4'>
+                                    {item.icon && <span className='w-[65px] min-w-[65px] inline-block'><Image src={item.icon} alt={'title'} /></span>}
+                                    {item.text && <div className='text-sm leading-6'>{item.text}</div>}
+                                </SwiperSlide>
+                            ))}
+                        
+                        </Swiper>
+                        </div>
+                        :
+                        <div>
+                            <ul className="flex flex-col space-y-4 lg:space-y-8 mb-10">
                                 {consultantsdata.map(item => (
                                     <li key={item.id} className={`flex items-center gap-3 ${item.className}`}>
-                                        {item.icon && <span className='w-[80px] min-w-[80px]'><Image src={item.icon} alt={'title'} /></span>}
-                                        {item.text && <div className='text-base leading-6'>{item.text}</div>}
+                                        {item.icon && <span className='min-w-[65px] w-[65px] lg:w-[80px] lg:min-w-[80px]'><Image src={item.icon} alt={'title'} /></span>}
+                                        {item.text && <div className='text-xs lg:text-base leading-6'>{item.text}</div>}
                                     </li>
                                 ))}
                             </ul>
-                        </div>}
-                        <div>
+                        </div>
+                        }
+                        <div className='text-center md:text-start'>
                             <Link href="#"><Button variant={'default'} size={'sm'} className=''>ABOUT US</Button></Link>
                         </div>
                     </div>

@@ -3,10 +3,7 @@
 import React from 'react';
 import LOGO from './img/logo.svg';
 import LOGO_SMALL from './img/logo-small.svg';
-import ICON_BARS from './img/icon-bars.svg';
-import BUTTON_SEARCH from './img/button-search.svg';
 import Image from 'next/image';
-import SearchForm from '@/forms/SearchForm';
 import Navbar from './Navbar';
 import {
     DropdownMenu,
@@ -21,7 +18,8 @@ import Link from 'next/link';
 import { rightbars } from "./data.header";
 import { Button } from '../ui/button';
 import { useMediaQuery } from '@/hooks/use-media-query';
-
+import Search from './Search';
+import Toggler from './Toggler';
 
 const AnnouncementBar: React.FC<{ text: string }> = ({ text }) => {
     return (
@@ -116,15 +114,7 @@ const Header = () => {
                     <div className="header__top py-3">
                         <div className="grid grid-cols-3 items-center">
                             <div className="header__search">
-
-                                {isSmallScreen ?
-                                    <Button variant={'ghost'} className='p-0 h-auto'>
-                                        <Image src={BUTTON_SEARCH} alt={"search"} />
-                                    </Button>
-                                    :
-                                    <SearchForm />
-                                }
-
+                                <Search />
                             </div>
                             <div className="header__logo text-center flex items-center justify-center">
                                 <Link href={'/'} className='inline-block max-w-[140px]'>
@@ -137,11 +127,7 @@ const Header = () => {
                             </div>
                             <div className="header__rightbar text-end">
                                 {isSmallScreen ?
-                                    <div>
-                                        <Button variant={'ghost'} className='p-0 h-auto'>
-                                            <Image src={ICON_BARS} alt={"LOGO"} className='' />
-                                        </Button>
-                                    </div>
+                                    <Toggler />
                                     :
                                     <RightBarActions list={rightbars} />
                                 }

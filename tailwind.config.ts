@@ -11,11 +11,23 @@ const config = {
   ],
   prefix: "",
   theme: {
+    screens: {
+      'sm': '640px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+      '2xl': '1536px',
+    },
     container: {
       center: true,
       padding: "15px",
+      // default breakpoints but with 40px removed
       screens: {
-        "2xl": "1230px",
+        sm: '480px',
+        md: '728px',
+        lg: '984px',
+        xl: '1140px',
+        '2xl': '1230px',
       },
     },
 

@@ -1,4 +1,13 @@
 class Config {
+  static screens() {
+    return {
+      'sm': '640px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+      '2xl': '1536px',
+    };
+  }
   static starRating(rating: number): string {
     const fullStars = Math.floor(rating);
     const halfStar = rating - fullStars >= 0.5 ? 1 : 0;

@@ -24,15 +24,15 @@ import { Button } from '@/components/ui/button';
 
 const ParentsReviews = () => {
     return (
-        <section className='pt-[130px] pb-[180px] bg-primary text-white relative overflow-hidden'>
+        <section className='pt-[60px] pb-[100px] px-[30px] md:px-0 md:py-[130px] bg-primary text-white relative overflow-hidden'>
             <Image src={TopShape} alt={"Shape Top"} className='-top-[1px] start-0 end-0 w-full absolute' />
             <Image src={BottomShape} alt={"Shape Top"} className='-bottom-[1px] start-0 end-0 w-full absolute' />
-            <Image src={babySleeping} alt={"Shape Top"} className='-bottom-[1px] start-1/2 -translate-x-1/2 end-0 w-auto absolute' />
+            <Image src={babySleeping} alt={"Shape Top"} className='-bottom-[1px] start-1/2 -translate-x-1/2 end-0 w-[60px] lg:w-[100px] absolute' />
 
-            <div className="container max-w-[1230px]">
+            <div className="container">
                 {/* Section Heading */}
                 <div className="section-title mb-10 text-center">
-                    <h2 className='text-5xl font-quicksand font-bold text-white mb-2'>What Parents Are Saying</h2>
+                    <h2 className='text-2xl lg:text-5xl font-quicksand font-bold text-white'>What Parents Are Saying</h2>
                 </div>
 
                 {reviewsdata &&
@@ -43,7 +43,7 @@ const ParentsReviews = () => {
                             slidesPerView={4}
                             onSlideChange={() => console.log('slide change')}
                             onSwiper={(swiper) => console.log(swiper)}
-                            className='slide-equal-height'
+                            className='slide-equal-height default-pagination-light'
                             // install Swiper modules
                             navigation={{
                                 nextEl: ".parents-review-carousel--next",
@@ -55,14 +55,18 @@ const ParentsReviews = () => {
                                 0: {
                                     slidesPerView: 1,
                                 },
-                                639: {
+                                768: {
                                     slidesPerView: 2,
                                 },
-                                865: {
-                                    slidesPerView: 3
+                                1024: {
+                                    slidesPerView: 3,
+                                    spaceBetween: 20,
+                                    pagination: false
                                 },
-                                1399: {
-                                    slidesPerView: 4
+                                1280: {
+                                    slidesPerView: 4,
+                                    spaceBetween: 20,
+                                    pagination: false
                                 },
                             }}
                         >
@@ -102,7 +106,7 @@ const ParentsReviews = () => {
                             })}
                         </Swiper>
 
-                        <div className='absolute top-1/2 z-10 start-0 flex items-center justify-between w-full end-0 hidden'>
+                        <div className='absolute top-1/2 z-10 start-0 hidden lg:flex items-center justify-between w-full end-0'>
                             <span className='parents-review-carousel--prev cursor-pointer opacity-30 w-[38px] min-w-[38px] -ms-[75px] hover:opacity-75 transition-all duration-300 ease-linear inline-flex'><Image src={BackIcon} alt={'Back Icon'} /></span>
                             <span className='parents-review-carousel--next cursor-pointer opacity-30 w-[38px] min-w-[38px] -me-[75px] hover:opacity-75 transition-all duration-300 ease-linear inline-flex'><Image src={NextIcon} alt={'Back Icon'} /></span>
                         </div>

@@ -36,7 +36,16 @@ const slidesdata: SlidesJSON[] = [
     id: 2,
     caption: "Welcome to Babogue",
     heading: "Are you exhausted from lack of sleep?",
-    description: 'Firstly, I can\'t recommend Erica highly enough. From initial contact right through she has been very professional, friendly and approachable. We contacted Erica after a very disruptive year. We have 2 children aged 18 months and nearly 4 years.',
+    list: [
+      {
+        icon: AngleRight,
+        text: 'We offer sleep courses from Newborn to 10 Years that can help you establish a consistent routine.',
+      },
+      {
+        icon: AngleRight,
+        text: 'Conquer nighttime sleep, solve early rising, land naps, and deal with regressions.',
+      }
+    ],
     button__label: 'Our Courses',
     button__url: '#',
     banner: SlideBanner,
@@ -45,7 +54,16 @@ const slidesdata: SlidesJSON[] = [
     id: 3,
     caption: "Welcome to Babogue",
     heading: "Are you exhausted from lack of sleep?",
-    description: 'Firstly, I can\'t recommend Erica highly enough. From initial contact right through she has been very professional, friendly and approachable. We contacted Erica after a very disruptive year. We have 2 children aged 18 months and nearly 4 years.',
+    list: [
+      {
+        icon: AngleRight,
+        text: 'We offer sleep courses from Newborn to 10 Years that can help you establish a consistent routine.',
+      },
+      {
+        icon: AngleRight,
+        text: 'Conquer nighttime sleep, solve early rising, land naps, and deal with regressions.',
+      }
+    ],
     button__label: 'Our Courses',
     button__url: '#',
     banner: SlideBanner,

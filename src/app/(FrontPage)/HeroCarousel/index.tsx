@@ -21,10 +21,12 @@ import 'swiper/css/pagination';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import { useMediaQuery } from '@/hooks/use-media-query';
 
 const HeroCarousel = () => {
+    const isMobile = useMediaQuery("(max-width: 768px)");
     return (
-        <section className='pt-[50px] bg-columbia-blue pb-0 text-white relative overflow-hidden hero-carousel hidden' style={{ backgroundImage: `url(${Pattern.src})` }}>
+        <section className='pt-[50px] px-[30px] md:px-0 bg-columbia-blue pb-0 text-white relative overflow-hidden hero-carousel' style={{ backgroundImage: `url(${Pattern.src})` }}>
             <Image src={TopShape} alt={"Shape Top"} className='-top-[1px] start-0 end-0 w-full absolute' />
             <Image src={BottomShape} alt={"Shape Top"} className='-bottom-[1px] start-0 end-0 w-full absolute z-[6]' />
 
@@ -45,10 +47,10 @@ const HeroCarousel = () => {
                                 return (
                                     <SwiperSlide key={slide.id}>
                                         <div className="container">
-                                            <div className="grid lg:grid-cols-[0.75fr_1fr] items-end">
-                                                <div className="slide__content space-y-4 pt-[120px] pb-[150px] min-h-[70vh]">
+                                            <div className="grid grid-cols-1 gap-y-[70px] lg:grid-cols-[0.75fr_1fr] items-end">
+                                                <div className="slide__content space-y-4 pt-[30px] xl:pt-[120px] lg:pb-[150px] lg:min-h-[70vh]">
                                                     {slide.caption && <h6 className='text-primary text-xl font-normal'>{slide.caption}</h6>}
-                                                    {slide.heading && <h6 className='text-dark text-6xl leading-[1.1] font-bold'>{slide.heading}</h6>}
+                                                    {slide.heading && <h6 className='text-dark text-5xl xl:text-6xl leading-[1.1] font-bold'>{slide.heading}</h6>}
                                                     {slide.list && <div className='text-dark flex flex-col gap-4'>{slide.list.map((item, i) => (
                                                         <li className='flex gap-4' key={i}>
                                                             {item.icon && <span className='min-w-[18px] mt-3'><Image src={item.icon} alt="icon" /></span>}
@@ -61,7 +63,7 @@ const HeroCarousel = () => {
                                                     </div>}
                                                 </div>
                                                 <div className="slide__banner relative">
-                                                    <Image src={slide.banner} alt="Banner" className='max-w-[95%]' />
+                                                    <Image src={slide.banner} alt="Banner" className='max-w-[80%] xl:max-w-[95%]' />
                                                     <Image src={Stars_1} alt="Stars 1" className='absolute -top-[10%] start-[4%] max-w-[20%]' />
                                                     <Image src={Stars_2} alt="Stars 2" className='absolute bottom-[20%] max-w-[20%] -end-[15%]' />
                                                 </div>
@@ -73,11 +75,13 @@ const HeroCarousel = () => {
                         </Swiper>
                     </div>
                 }
-                <div className="absolute start-0 bottom-0 z-10 w-full">
-                    <div className="container">
-                        <Image src={babySleeping} alt={"Shape Top"} className='' />
+                {!isMobile &&
+                    <div className="absolute hidden lg:block start-0 bottom-0 z-10 w-full">
+                        <div className="container">
+                            <Image src={babySleeping} alt={"Shape Top"} className='' />
+                        </div>
                     </div>
-                </div>
+                }
             </div>
         </section>
     )
