@@ -1,11 +1,12 @@
-import SlideBanner from './img/slide-banner.png';
 import AngleRight from './img/angle-right.svg';
+import SlideBanner from './img/slide-banner.webp';
 
 interface SlidesJSON {
   id: number;
   caption?: string;
   heading: string;
   description?: string;
+  background?: string;
   list?: { icon?: any; text: string }[];
   className?: string;
   button__label?: string;
@@ -18,6 +19,7 @@ const slidesdata: SlidesJSON[] = [
     id: 1,
     caption: "Welcome to Babogue",
     heading: "Are you exhausted from lack of sleep?",
+    background: '#C1DED5',
     list: [
       {
         icon: AngleRight,
@@ -36,6 +38,7 @@ const slidesdata: SlidesJSON[] = [
     id: 2,
     caption: "Welcome to Babogue",
     heading: "Are you exhausted from lack of sleep?",
+    background: '#fff4eb',
     list: [
       {
         icon: AngleRight,
@@ -54,6 +57,7 @@ const slidesdata: SlidesJSON[] = [
     id: 3,
     caption: "Welcome to Babogue",
     heading: "Are you exhausted from lack of sleep?",
+    background: '#ADD8F2',
     list: [
       {
         icon: AngleRight,
