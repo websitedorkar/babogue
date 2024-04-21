@@ -134,39 +134,56 @@
   @apply relative pt-3
 }
 
+/* .Header Sticky */
 .header--sticky {
-  @apply fixed top-0 bg-white w-full pb-2 shadow-sm;
+  @apply fixed top-0 -translate-y-[70px] bg-white w-full pb-2 shadow-sm;
+}
 
-  -webkit-animation-name: header_animation;
-  animation-name: header_animation;
-  -webkit-animation-duration: 0.4s;
-  animation-duration: 0.4s;
-  -webkit-animation-iteration-count: 1;
-  animation-iteration-count: 1;
-  -webkit-animation-delay: false;
-  animation-delay: false;
+.header--sticky.direction-up,
+.header--sticky.direction-down {
+  -webkit-animation: header_animation 0.4s forwards;
+  animation: header_animation 0.4s forwards;
 }
 
 @-webkit-keyframes header_animation {
   0% {
-    -webkit-transform: translate3d(0, -70px, 0);
-    transform: translate3d(0, -70px, 0);
+    -webkit-transform: translateY(-70px);
+    transform: translateY(-70px);
   }
 
   100% {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
   }
 }
 
 @keyframes header_animation {
   0% {
-    -webkit-transform: translate3d(0, -70px, 0);
-    transform: translate3d(0, -70px, 0);
+    -webkit-transform: translateY(-70px);
+    transform: translateY(-70px);
   }
 
   100% {
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+}
+
+.header--sticky.direction-down {
+  -webkit-animation-name: revert_header_animation;
+  animation-name: revert_header_animation;
+}
+
+@-webkit-keyframes revert_header_animation {
+  100% {
+    -webkit-transform: translateY(-70px);
+    transform: translateY(-70px);
+  }
+}
+
+@keyframes revert_header_animation {
+  100% {
+    -webkit-transform: translateY(-70px);
+    transform: translateY(-70px);
   }
 }

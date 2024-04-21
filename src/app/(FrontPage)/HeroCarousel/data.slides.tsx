@@ -57,7 +57,7 @@ const slidesdata: SlidesJSON[] = [
     id: 3,
     caption: "Welcome to Babogue",
     heading: "Are you exhausted from lack of sleep?",
-    background: '#ADD8F2',
+    background: '#cdecff',
     list: [
       {
         icon: AngleRight,

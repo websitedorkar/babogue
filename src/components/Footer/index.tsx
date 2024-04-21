@@ -24,7 +24,7 @@ const Footer = () => {
                                 case 'newsletter':
                                     return (
                                         <div className='footer__block order-last lg:order-first col-span-2' key={block.id}>
-                                            {block.heading && <h3 className='text-xl leading-6 font-quicksand font-bold mb-4 md:mb-6'>{block.heading}</h3>}
+                                            {block.heading && <h3 className='text-sm lg:text-xl leading-6 font-quicksand font-bold mb-4 md:mb-6'>{block.heading}</h3>}
                                             <NewsletterForm description={block.description ?? ''} placeholder={block.placeholder ?? ''} />
                                         </div>
                                     )
@@ -32,11 +32,11 @@ const Footer = () => {
                                     return (
                                         <div className='footer__block' key={block.id}>
                                             {/* Render Linklist block */}
-                                            {block.heading && <h3 className='text-xl leading-6 font-quicksand font-bold mb-4 md:mb-6'>{block.heading}</h3>}
-                                            <ul className='flex flex-col gap-2 md:gap-3'>
+                                            {block.heading && <h3 className='text-sm lg:text-xl leading-6 font-quicksand font-bold mb-4 md:mb-6'>{block.heading}</h3>}
+                                            <ul className='flex flex-col gap-1 md:gap-3'>
                                                 {block.list.map((link, index) => (
                                                     <li key={index}>
-                                                        <Link href={link.slug} className='font-semibold text-sm text-white transition-all duration-200 hover:text-opacity-75'>{link.name}</Link>
+                                                        <Link href={link.slug} className='font-semibold text-xxs md:text-sm leading-5 md:leading-6 text-white transition-all duration-200 hover:text-opacity-75'>{link.name}</Link>
                                                     </li>
                                                 ))}
                                             </ul>
@@ -46,10 +46,10 @@ const Footer = () => {
                                     return (
                                         <div className='footer__block' key={block.id}>
                                             {/* Render Gallery block */}
-                                            {block.heading && <h3 className='text-xl leading-6 font-quicksand font-bold mb-4 md:mb-6'>{block.heading}</h3>}
-                                            <div className='flex flex-wrap gap-3 gap-x-6'>
+                                            {block.heading && <h3 className='text-sm lg:text-xl leading-6 font-quicksand font-bold mb-4 md:mb-6'>{block.heading}</h3>}
+                                            <div className='flex flex-wrap gap-3 md:gap-x-6'>
                                                 {block.list.map((image, index) => (
-                                                    <Image key={index} src={image.image} alt={`Gallery Image ${index}`} className='h-[100px] w-auto max-w-1/2' />
+                                                    <Image key={index} src={image.image} alt={`Gallery Image ${index}`} className='h-[65px] md:h-[100px] w-auto max-w-1/2' />
                                                 ))}
                                             </div>
                                         </div>

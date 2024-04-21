@@ -41,6 +41,7 @@ const HeroCarousel = () => {
                             modules={[EffectFade, Pagination]}
                             spaceBetween={40}
                             slidesPerView={1}
+                            autoplay={true}
                             effect={"fade"}
                             fadeEffect= {{ crossFade: true }}
                             className='slide-equal-height'

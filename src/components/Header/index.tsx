@@ -101,8 +101,10 @@ const RightBarActions: React.FC<RightBarActionsProps> = ({ list }) => {
 }
 
 const Header = () => {
-    const [isScrolled, setIsScrolled] = useState<boolean>(false);
+    const [isScrolled, setIsScrolled] = useState<string>('hidden');
     const controls = useAnimation();
+
+    const isDesktop = window.innerWidth >= 992;
 
     useEffect(() => {
         let prevScrollPos = window.pageYOffset;
@@ -110,9 +112,14 @@ const Header = () => {
         function handleScroll() {
             const currentScrollPos = window.pageYOffset;
             if (currentScrollPos <= 400) {
-                setIsScrolled(false);
+                setIsScrolled('hidden');
             } else {
-                setIsScrolled(prevScrollPos < currentScrollPos);
+                if(prevScrollPos > currentScrollPos){
+                    setIsScrolled('up'); 
+                } else{
+                    setIsScrolled('down'); 
+                }
+                // IF SCROLL TOP setIsScrolled will be true and if scroll down setIsScrolled will be false
             }
             prevScrollPos = currentScrollPos;
         }
@@ -135,15 +142,14 @@ const Header = () => {
                 animate={controls}
             >
                 <div className="container">
-                    <div className="header__top py-3">
+                    <div className="header__top py-2 md:py-3">
                         <div className="grid grid-cols-3 items-center">
                             <div className="header__search">
                                 <Search />
                             </div>
                             <div className="header__logo text-center flex items-center justify-center">
-                                <Link href={'/'} className='inline-block max-w-[140px]'>
-                                    <Image src={LOGO_SMALL} alt={"LOGO"} className='block lg:hidden' />
-                                    <Image src={LOGO} alt={"LOGO"} className='hidden lg:block' />
+                                <Link href={'/'} className='inline-block max-w-[90px] lg:max-w-[140px]'>
+                                    <Image src={LOGO} alt={"LOGO"} className='' />
                                 </Link>
                             </div>
                             <div className="header__rightbar text-end">
@@ -155,7 +161,7 @@ const Header = () => {
                         </div>
                     </div>
                 </div>
-                <div className={`header__nav ${isScrolled ? 'header--sticky' : ''}`}>
+                <div className={`header__nav ${isDesktop && isScrolled != 'hidden' ? 'header--sticky direction-' + isScrolled : ''}`}>
                     <div className="container">
                         <div className="hidden lg:block border-t border-border header__navbar"><Navbar /></div>
                     </div>

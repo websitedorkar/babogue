@@ -38,41 +38,44 @@ const Toolbar: React.FC = () => {
         };
     }, []);
   return (
-    <aside className='fixed bottom-0 end-0 start-0 z-20 bg-white text-dark flex items-center py-1 rounded-t-[16px] px-4 border border-solid border-border border-b-0'>
-        <Link href={'/'} className="flex-grow text-center">
-            <div className="inline-flex flex-col gap-y-1">
-                <div><Image src={ Home } alt={'Home'} className='mx-auto'/></div>
-                <h6 className='text-[11px] font-semibold'>Home</h6>
+    <aside className='fixed bottom-0 end-0 start-0 z-20 bg-white text-dark py-1 rounded-t-[16px] border border-solid border-border border-b-0'>
+        <div className="container">
+            <div className="flex items-center">
+                <Link href={'/'} className="flex-grow text-center">
+                    <div className="inline-flex flex-col gap-y-1">
+                        <div><Image src={ Home } alt={'Home'} className='mx-auto'/></div>
+                        <h6 className='text-[11px] font-semibold'>Home</h6>
+                    </div>
+                </Link>
+                <Link href={'/'} className="flex-grow text-center">
+                    <div className="inline-flex flex-col gap-y-1">
+                        <div><Image src={ Courses } alt={'Courses'} className='mx-auto'/></div>
+                        <h6 className='text-[11px] font-semibold'>My Courses</h6>
+                    </div>
+                </Link>
+                {/* Service Toggle */}
+                <Button variant={'ghost'} onClick={toggleServices} className="p-0 flex-grow text-center" ref={buttonRef}>
+                    <div className="inline-flex flex-col gap-y-1 -mt-4 -translate-y-1">
+                        <div><Image src={ Services } alt={'Services'} className='mx-auto min-w-[80px] shadow-[0px_0px_24px_rgba(0,0,0,0.059)] rounded-full'/></div>
+                    </div>
+                </Button>
+                <Link href={'/'} className="flex-grow text-center">
+                    <div className="inline-flex flex-col">
+                        <div className="inline-block relative mx-3">
+                            <Image src={Cart} className='w-[30px] min-w-[30px]' alt="Cart Icon" />
+                            <span className="text-xs font-bold text-white bg-primary-light min-w-[21px] w-[21px] h-[21px] inline-flex items-center justify-center rounded-full absolute -top-[5px] -end-[8px]">2</span>
+                        </div>
+                        <h6 className='text-[11px] font-semibold'>Cart</h6>
+                    </div>
+                </Link>
+                <Link href={'/'} className="flex-grow text-center" onClick={toggleServices}>
+                    <div className="inline-flex flex-col gap-y-1">
+                        <div><Image src={ Account } alt={'Account'} className='mx-auto'/></div>
+                        <h6 className='text-[11px] font-semibold'>Account</h6>
+                    </div>
+                </Link>
             </div>
-        </Link>
-        <Link href={'/'} className="flex-grow text-center">
-            <div className="inline-flex flex-col gap-y-1">
-                <div><Image src={ Courses } alt={'Courses'} className='mx-auto'/></div>
-                <h6 className='text-[11px] font-semibold'>My Courses</h6>
-            </div>
-        </Link>
-        {/* Service Toggle */}
-        <Button variant={'ghost'} onClick={toggleServices} className="p-0 flex-grow text-center" ref={buttonRef}>
-            <div className="inline-flex flex-col gap-y-1 -mt-4 -translate-y-1">
-                <div><Image src={ Services } alt={'Services'} className='mx-auto min-w-[80px] shadow-[0px_0px_24px_rgba(0,0,0,0.059)] rounded-full'/></div>
-            </div>
-        </Button>
-        <Link href={'/'} className="flex-grow text-center">
-            <div className="inline-flex flex-col">
-                <div className="inline-block relative mx-3">
-                    <Image src={Cart} className='w-[30px] min-w-[30px]' alt="Cart Icon" />
-                    <span className="text-xs font-bold text-white bg-primary-light min-w-[21px] w-[21px] h-[21px] inline-flex items-center justify-center rounded-full absolute -top-[5px] -end-[8px]">2</span>
-                </div>
-                <h6 className='text-[11px] font-semibold'>Cart</h6>
-            </div>
-        </Link>
-        <Link href={'/'} className="flex-grow text-center" onClick={toggleServices}>
-            <div className="inline-flex flex-col gap-y-1">
-                <div><Image src={ Account } alt={'Account'} className='mx-auto'/></div>
-                <h6 className='text-[11px] font-semibold'>Account</h6>
-            </div>
-        </Link>
-
+        </div>
         {/* Services List */}
         <motion.div 
             animate={isOpen ? 'open' : 'closed'}
