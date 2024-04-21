@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import LOGO from './img/logo.svg';
 import LOGO_SMALL from './img/logo-small.svg';
 import Image from 'next/image';
@@ -17,15 +17,15 @@ import Link from 'next/link';
 
 import { rightbars } from "./data.header";
 import { Button } from '../ui/button';
-import { useMediaQuery } from '@/hooks/use-media-query';
 import Search from './Search';
 import Toggler from './Toggler';
+import { motion, useAnimation } from 'framer-motion';
 
 const AnnouncementBar: React.FC<{ text: string }> = ({ text }) => {
     return (
         <div className='bg-primary text-white py-[10px] relative z-[1]'>
             <div className="container">
-                {text && <div className="text-center text-sm lg:text-base">{text}</div>}
+                {text && <div className="text-center text-[11px] md:text-sm lg:text-base">{text}</div>}
             </div>
         </div>
     )
@@ -101,7 +101,27 @@ const RightBarActions: React.FC<RightBarActionsProps> = ({ list }) => {
 }
 
 const Header = () => {
-    const isSmallScreen = useMediaQuery("(max-width: 1024px)");
+    const [isScrolled, setIsScrolled] = useState<boolean>(false);
+    const controls = useAnimation();
+
+    useEffect(() => {
+        let prevScrollPos = window.pageYOffset;
+    
+        function handleScroll() {
+            const currentScrollPos = window.pageYOffset;
+            if (currentScrollPos <= 400) {
+                setIsScrolled(false);
+            } else {
+                setIsScrolled(prevScrollPos < currentScrollPos);
+            }
+            prevScrollPos = currentScrollPos;
+        }
+    
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+    
+        
     return (
         <>
             {/* ANNOUNCEMENT BAR */}
@@ -109,7 +129,11 @@ const Header = () => {
             {/* ANNOUNCEMENT BAR */}
 
             {/* START HEADER */}
-            <header className='header bg-white relative z-[20]'>
+            <motion.header
+                className={`header bg-white relative z-[20]`}
+                initial={{ opacity: 1 }}
+                animate={controls}
+            >
                 <div className="container">
                     <div className="header__top py-3">
                         <div className="grid grid-cols-3 items-center">
@@ -118,25 +142,25 @@ const Header = () => {
                             </div>
                             <div className="header__logo text-center flex items-center justify-center">
                                 <Link href={'/'} className='inline-block max-w-[140px]'>
-                                    {isSmallScreen ?
-                                        <Image src={LOGO_SMALL} alt={"LOGO"} className='' />
-                                        :
-                                        <Image src={LOGO} alt={"LOGO"} className='' />
-                                    }
+                                    <Image src={LOGO_SMALL} alt={"LOGO"} className='block lg:hidden' />
+                                    <Image src={LOGO} alt={"LOGO"} className='hidden lg:block' />
                                 </Link>
                             </div>
                             <div className="header__rightbar text-end">
-                                {isSmallScreen ?
-                                    <Toggler />
-                                    :
+                                <div className="block lg:hidden"><Toggler /></div>
+                                <div className='hidden lg:block'>
                                     <RightBarActions list={rightbars} />
-                                }
+                                </div>
                             </div>
                         </div>
                     </div>
-                    {!isSmallScreen && <div className="border-t border-border header__navbar"><Navbar /></div>}
                 </div>
-            </header>
+                <div className={`header__nav ${isScrolled ? 'header--sticky' : ''}`}>
+                    <div className="container">
+                        <div className="hidden lg:block border-t border-border header__navbar"><Navbar /></div>
+                    </div>
+                </div>
+            </motion.header>
             {/* END HEADER */}
         </>
     )

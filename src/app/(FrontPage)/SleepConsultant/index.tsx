@@ -20,7 +20,7 @@ import PlayButton from './playButton';
 const SleepConsultant = () => {
     const isMobile = useMediaQuery("(max-width: 768px)");
     return (
-        <section className='pt-[50px] pb-[100px] bg-white relative px-[30px] md:px-0'>
+        <section className='pt-[60px] pb-[60px] lg:pb-[100px] bg-white relative px-[30px] md:px-0'>
             <div className="container">
                 <div className="grid grid-cols-1 gap-y-[30px] lg:grid-cols-2 items-center gap-4 xl:gap-x-[90px]">
                     <div className="grid__item lg:order-2">
@@ -50,8 +50,6 @@ const SleepConsultant = () => {
                             modules={[Pagination]}
                             spaceBetween={15}
                             slidesPerView={1}
-                            onSlideChange={() => console.log('slide change')}
-                            onSwiper={(swiper) => console.log(swiper)}
                             className='default-pagination mb-6'
                             // install Swiper modules
                             pagination={{ clickable: true }}

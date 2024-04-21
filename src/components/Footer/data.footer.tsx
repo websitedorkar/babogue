@@ -9,6 +9,12 @@ import SOCIAL__YOUTUBE from './img/social--youtube.svg';
 import SOCIAL__PINTEREST from './img/social--pinterest.svg';
 import SOCIAL__TIKTOK from './img/social--tiktok.svg';
 
+
+import BRAND__1 from './img/brand--1.jpg';
+import BRAND__2 from './img/brand--2.jpg';
+import BRAND__3 from './img/brand--3.jpg';
+import BRAND__4 from './img/brand--4.jpg';
+
 interface BaseBlock {
   id: number;
   type: string;
@@ -143,41 +149,71 @@ const socials: SocialsJSON[] = [
     slug: '/facebook'
   },
   {
-    id: 1,
+    id: 2,
     icon: SOCIAL__TWITTER,
     title: "Twitter",
     slug: '/twitter'
   },
   {
-    id: 1,
+    id: 3,
     icon: SOCIAL__LINKEDIN,
     title: "Linkedin",
     slug: '/linkedin'
   },
   {
-    id: 1,
+    id: 4,
     icon: SOCIAL__INSTAGRAM,
     title: "Instagram",
     slug: '/instagram'
   },
   {
-    id: 1,
+    id: 5,
     icon: SOCIAL__YOUTUBE,
     title: "Youtube",
     slug: '/youtube'
   },
   {
-    id: 1,
+    id: 6,
     icon: SOCIAL__PINTEREST,
     title: "Pinterest",
     slug: '/pinterest'
   },
   {
-    id: 1,
+    id: 7,
     icon: SOCIAL__TIKTOK,
     title: "Tiktok",
     slug: '/tiktok'
   },
 ]
 
-export { blocks, socials };
+interface BrandJSON {
+  id: number;
+  thumbnail: any;
+  title?: string;
+  className?: string;
+}
+
+const brands: BrandJSON[] = [
+  {
+    id: 1,
+    thumbnail: BRAND__1,
+    title: "Brand 1"
+  },
+  {
+    id: 2,
+    thumbnail: BRAND__2,
+    title: "Brand 2"
+  },
+  {
+    id: 3,
+    thumbnail: BRAND__3,
+    title: "Brand 3"
+  },
+  {
+    id: 4,
+    thumbnail: BRAND__4,
+    title: "Brand 4"
+  },
+]
+
+export { blocks, socials, brands };

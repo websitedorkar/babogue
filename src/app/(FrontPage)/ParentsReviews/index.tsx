@@ -24,15 +24,15 @@ import { Button } from '@/components/ui/button';
 
 const ParentsReviews = () => {
     return (
-        <section className='pt-[60px] pb-[100px] px-[30px] md:px-0 md:py-[130px] bg-primary text-white relative overflow-hidden'>
+        <section className='pt-[60px] pb-[100px] px-[15px] md:px-0 md:py-[130px] bg-primary text-white relative overflow-hidden'>
             <Image src={TopShape} alt={"Shape Top"} className='-top-[1px] start-0 end-0 w-full absolute' />
             <Image src={BottomShape} alt={"Shape Top"} className='-bottom-[1px] start-0 end-0 w-full absolute' />
             <Image src={babySleeping} alt={"Shape Top"} className='-bottom-[1px] start-1/2 -translate-x-1/2 end-0 w-[60px] lg:w-[100px] absolute' />
 
             <div className="container">
                 {/* Section Heading */}
-                <div className="section-title mb-10 text-center">
-                    <h2 className='text-2xl lg:text-5xl font-quicksand font-bold text-white'>What Parents Are Saying</h2>
+                <div className="section-title mb-[20px] text-center">
+                    <h2 className='text-xl lg:text-5xl font-quicksand font-bold text-white'>What Parents Are Saying</h2>
                 </div>
 
                 {reviewsdata &&
@@ -41,8 +41,6 @@ const ParentsReviews = () => {
                             modules={[Navigation, Pagination]}
                             spaceBetween={30}
                             slidesPerView={4}
-                            onSlideChange={() => console.log('slide change')}
-                            onSwiper={(swiper) => console.log(swiper)}
                             className='slide-equal-height default-pagination-light'
                             // install Swiper modules
                             navigation={{

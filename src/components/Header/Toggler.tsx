@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Button } from '../ui/button';
 import Image from 'next/image';
-import ICON_BARS from './img/icon-bars.svg';
 import ICON_DOWN from './img/icon-arrow-down.svg';
 import { menus } from './data.header';
 import Link from 'next/link';
@@ -15,7 +14,7 @@ interface MenuItem {
     thumbnail?: any;
     title?: string;
     description?: string;
-    slug: string
+    slug: string;
   }[];
 }
 
@@ -23,23 +22,23 @@ interface SubMenuItem {
   thumbnail?: any;
   title?: string;
   description?: string;
-  slug: string
+  slug: string;
 }
-const variants = {
-  open: { opacity: 1, height: 'auto' },
-  closed: { opacity: 0, height: 0 },
+
+const SubmenuItem: React.FC<{ submenuItem: SubMenuItem; index: number; list: any }> = ({ submenuItem, index, list }) => {
+  const isLastChild = index === list.length - 1;
+  return (
+    <li>
+      <Link href={submenuItem.slug} className={`text-sm py-[10px] flex items-center leading-5 font-normal font-roboto  ${!isLastChild && 'border-b border-border'}`}>
+        {submenuItem.title}
+      </Link>
+    </li>
+  );
 };
 
-const SubmenuItem: React.FC<{ submenuItem: SubMenuItem }> = ({ submenuItem }) => (
-  <li>
-    <Link href={submenuItem.slug} className="text-base py-[13px] flex items-center leading-6 font-normal font-roboto">
-      {submenuItem.title}
-    </Link>
-  </li>
-);
-
-const MenuLink: React.FC<{ menu: MenuItem }> = ({ menu }) => {
+const MenuLink: React.FC<{ menu: MenuItem; index: number; list: any }> = ({ menu, index, list }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const menuRef = useRef<HTMLUListElement>(null);
 
   const toggleSubMenu = () => {
     setIsOpen((prev) => !prev);
@@ -50,11 +49,31 @@ const MenuLink: React.FC<{ menu: MenuItem }> = ({ menu }) => {
       event.preventDefault(); // Prevent default link behavior if the menu has a submenu
       toggleSubMenu(); // Toggle the submenu visibility
     }
+    event.stopPropagation(); // Stop propagation to prevent closing the menu
   };
+
+  const isLastChild = index === list.length - 1;
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    }
+
+    document.body.addEventListener('click', handleClickOutside);
+    return () => {
+      document.body.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
 
   return (
     <li>
-      <a href={menu.slug} className={`text-base py-[13px] flex items-center leading-6 font-normal font-roboto`} onClick={handleMenuLinkClick}>
+      <a
+        href={menu.slug}
+        className={`text-base py-[12px] flex items-center leading-6 font-normal font-roboto ${!isLastChild && 'border-b border-border'}`}
+        onClick={handleMenuLinkClick}
+      >
         {menu.title}
         {menu.submenu && (
           <span className="ms-auto" onClick={toggleSubMenu}>
@@ -66,11 +85,15 @@ const MenuLink: React.FC<{ menu: MenuItem }> = ({ menu }) => {
         <motion.ul
           initial="closed"
           animate={isOpen ? 'open' : 'closed'}
-          variants={variants}
+          variants={{
+            open: { opacity: 1, height: 'auto' },
+            closed: { opacity: 0, height: 0 },
+          }}
           className="pl-4 overflow-hidden"
+          ref={menuRef}
         >
-          {menu.submenu.map((submenuItem, index) => (
-            <SubmenuItem key={index} submenuItem={submenuItem} />
+          {menu.submenu.map((submenuItem, idx) => (
+            <SubmenuItem key={idx} index={idx} list={menu.submenu} submenuItem={submenuItem} />
           ))}
         </motion.ul>
       )}
@@ -78,28 +101,114 @@ const MenuLink: React.FC<{ menu: MenuItem }> = ({ menu }) => {
   );
 };
 
+
+const Path: React.FC<PathProps> = ({ variants, ...props }) => (
+  <motion.path
+    fill="transparent"
+    strokeWidth="3"
+    stroke="hsl(0, 0%, 18%)"
+    strokeLinecap="round"
+    {...props}
+    variants={variants}
+  />
+);
+interface PathProps {
+  d: string;
+  variants: {
+    closed: { d?: string; opacity?: number };
+    open: { d?: string; opacity?: number };
+  };
+  transition?: {
+    duration: number;
+  };
+  animate: string; // Add animate property
+  initial: string; // Add initial property
+}
+
+interface ButtonToggleProps {
+  toggle: () => void;
+  isOpen: boolean;
+  buttonRef: React.RefObject<HTMLButtonElement>; // Add buttonRef to ButtonToggleProps
+}
+export const ButtonToggle: React.FC<ButtonToggleProps> = ({ toggle, isOpen, buttonRef }) => (
+  <Button variant={'ghost'} size={'sm'} className='p-0 h-auto' onClick={toggle} ref={buttonRef}>
+    <svg width="26" height="26" viewBox="0 0 23 23">
+      <Path
+        d="M 2 2.5 L 20 2.5"
+        variants={{
+          closed: { d: "M 2 2.5 L 20 2.5", opacity: 1 },
+          open: { d: "M 3 16.5 L 17 2.5", opacity: 1 },
+        }}
+        animate={isOpen ? "open" : "closed"}
+        initial="closed"
+      />
+      <Path
+        d="M 2 9.423 L 20 9.423"
+        variants={{
+          closed: { opacity: 1 },
+          open: { opacity: 0 },
+        }}
+        transition={{ duration: 0.1 }}
+        animate={isOpen ? "open" : "closed"}
+        initial="closed"
+      />
+      <Path
+        d="M 2 16.346 L 20 16.346"
+        variants={{
+          closed: { d: "M 2 16.346 L 20 16.346", opacity: 1 },
+          open: { d: "M 3 2.5 L 17 16.346", opacity: 1 },
+        }}
+        animate={isOpen ? "open" : "closed"}
+        initial="closed"
+      />
+    </svg>
+  </Button>
+);
+
 const Toggler: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   const toggleMenu = () => {
     setIsOpen((prev) => !prev);
   };
 
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        buttonRef.current &&
+        !buttonRef.current.contains(event.target as Node) &&
+        menuRef.current &&
+        !menuRef.current.contains(event.target as Node)
+      ) {
+        setIsOpen(false);
+      }
+    }
+
+    document.body.addEventListener('click', handleClickOutside);
+    return () => {
+      document.body.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
+
   return (
-    <div className="relative">
-      <Button variant={'ghost'} className="p-0 h-auto" onClick={toggleMenu}>
-        <Image src={ICON_BARS} alt={'LOGO'} className="" />
-      </Button>
+    <div className="relative flex justify-end">
+      <ButtonToggle toggle={() => toggleMenu()} isOpen={isOpen} buttonRef={buttonRef}/>
 
       <motion.div
         animate={isOpen ? 'open' : 'closed'}
-        variants={variants}
-        className={`absolute bg-white rounded-[18px] right-3 top-[calc(100%+3rem)] text-start px-6 py-3 min-w-[270px] shadow-sm before:content-[''] before:absolute before:w-0 before:h-0 before:-top-[9px] before:end-6 before:border-b-[10px] before:border-b-white before:border-x-[12px] before:border-x-transparent before:border-solid ${isOpen ? 'visible' : 'invisible'}`}
+        variants={{
+          open: { opacity: 1, y: 0 },
+          closed: { opacity: 0, y: '-1rem' },
+        }}
+        className={`absolute bg-white rounded-[18px] end-0 top-[calc(100%+2rem)] text-start px-6 py-3 min-w-[270px] shadow-sm before:content-[''] before:absolute before:w-0 before:h-0 before:-top-[9px] before:end-6 before:border-b-[10px] before:border-b-white before:border-x-[12px] before:border-x-transparent before:border-solid ${isOpen ? 'visible' : 'invisible'}`}
+        ref={menuRef}
       >
         {menus && (
-          <ul>
-            {menus.map((menu, index) => (
-              <MenuLink key={String(menu.id)} menu={menu} />
+          <ul className='p-0'>
+            {menus.map((menu, idx) => (
+              <MenuLink key={menu.id} index={idx} list={menus} menu={menu}/>
             ))}
           </ul>
         )}

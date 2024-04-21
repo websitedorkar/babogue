@@ -25,7 +25,7 @@ import { Button } from '@/components/ui/button';
 const BlogArticles = () => {
 
     return (
-        <section className='pt-[50px] px-[30px] md:px-0 md:pt-[100px] pb-[70px] md:pb-[120px] bg-sky relative overflow-hidden'>
+        <section className='pt-[50px] px-[15px] md:px-0 md:pt-[100px] pb-[70px] md:pb-[120px] bg-sky relative overflow-hidden'>
             <Image src={TopShape} alt={"Shape Top"} className='-top-[1px] start-0 end-0 w-full absolute' />
             <Image src={BottomShape} alt={"Shape Top"} className='-bottom-[1px] start-0 end-0 w-full absolute' />
 
@@ -41,8 +41,6 @@ const BlogArticles = () => {
                             modules={[Navigation, Pagination]}
                             spaceBetween={15}
                             slidesPerView={3}
-                            onSlideChange={() => console.log('slide change')}
-                            onSwiper={(swiper) => console.log(swiper)}
                             className='slide-equal-height default-pagination'
                             // install Swiper modules
                             navigation={{
@@ -72,13 +70,13 @@ const BlogArticles = () => {
                                             {/* Thumbnail */}
                                             {article.thumbnail &&
                                                 <div className="mb-5 relative">
-                                                    <Image src={article.thumbnail} alt={article.title} className='w-full h-[200px] md:h-[300px] object-cover rounded-[8px]' />
-                                                    {article.date && <span className='uppercase text-sm md:text-base leading-7 font-semibold font-quicksand text-white bg-primary inline-flex items-center justify-center absolute top-4 end-4 py-1 px-4 rounded-full'>{article.date}</span>}
+                                                    <Image src={article.thumbnail} alt={article.title} className='w-full h-[195px] md:h-[220px] object-cover rounded-[8px]' />
+                                                    {article.date && <span className='uppercase text-xxs md:text-base leading-5 md:leading-7 font-semibold font-quicksand text-white bg-primary inline-flex items-center justify-center absolute top-4 end-4 py-1 px-4 rounded-full'>{article.date}</span>}
                                                 </div>
                                             }
                                             <div className="mb-2 px-4 md:px-0">
                                                 {article.title && <h2 className='text-xl font-bold text-dark font-quicksand leading-6 mb-3'>{article.title}</h2>}
-                                                {article.description && <div className="text-dark text-sm font-normal leading-7 mb-0">{Config.truncateText(article.description, 90)}</div>}
+                                                {article.description && <div className="text-dark text-sm font-normal leading-5 md:leading-6 mb-0">{Config.truncateText(article.description, 90)}</div>}
                                             </div>
 
                                             {/* Action */}

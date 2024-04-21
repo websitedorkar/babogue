@@ -37,7 +37,7 @@ const Helping = () => {
     const chunkedFaqsData = chunkArray(faqsdata, 4);
 
     return (
-        <section className='py-[100px] bg-white relative overflow-hidden'>
+        <section className='py-[60px] lg:py-[100px] bg-white relative overflow-hidden'>
             <div className="container">
                 {/* Section Heading */}
                 <div className="section-title mb-10 text-center">
@@ -83,7 +83,7 @@ const Helping = () => {
 
                 <div>
                     <div className="max-w-[470px] text-center mx-auto">
-                        <h5 className='font-base font-bold text-dark mb-6'>Are you returning to work and would like to establish a healthy sleep routine for your child?</h5>
+                        <h5 className='font-base leading-6 font-bold text-dark mb-6'>Are you returning to work and would like to establish a healthy sleep routine for your child?</h5>
                         <Link href="#"><Button variant={'default'} size={'lg'} className='uppercase'>One To one</Button></Link>
                     </div>
                 </div>

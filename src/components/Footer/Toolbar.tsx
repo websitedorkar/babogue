@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Home from './img/toolbar--home.svg';
 import Cart from './img/toolbar--cart.svg';
 import Courses from './img/toolbar--courses.svg';
@@ -11,20 +11,34 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Button } from '../ui/button';
 
-const variants = {
-    open: { opacity: 1, y: 0, },
-    closed: { opacity: 0, y: '1rem' },
-};
-
 const Toolbar: React.FC = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
+    const buttonRef = useRef<HTMLButtonElement>(null);
+    const servicesRef = useRef<HTMLDivElement>(null);
 
     const toggleServices = () => {
         setIsOpen(!isOpen);
     };
 
+    useEffect(() => {
+        function handleClickOutside(event: MouseEvent) {
+            if (
+                buttonRef.current &&
+                !buttonRef.current.contains(event.target as Node) &&
+                servicesRef.current &&
+                !servicesRef.current.contains(event.target as Node)
+            ) {
+                setIsOpen(false);
+            }
+        }
+
+        document.body.addEventListener('click', handleClickOutside);
+        return () => {
+            document.body.removeEventListener('click', handleClickOutside);
+        };
+    }, []);
   return (
-    <aside className='fixed bottom-0 end-0 start-0 z-10 bg-white text-dark flex items-center py-1 rounded-t-[16px] px-4 border border-solid border-border border-b-0'>
+    <aside className='fixed bottom-0 end-0 start-0 z-20 bg-white text-dark flex items-center py-1 rounded-t-[16px] px-4 border border-solid border-border border-b-0'>
         <Link href={'/'} className="flex-grow text-center">
             <div className="inline-flex flex-col gap-y-1">
                 <div><Image src={ Home } alt={'Home'} className='mx-auto'/></div>
@@ -38,7 +52,7 @@ const Toolbar: React.FC = () => {
             </div>
         </Link>
         {/* Service Toggle */}
-        <Button variant={'ghost'} onClick={toggleServices} className="p-0 flex-grow text-center">
+        <Button variant={'ghost'} onClick={toggleServices} className="p-0 flex-grow text-center" ref={buttonRef}>
             <div className="inline-flex flex-col gap-y-1 -mt-4 -translate-y-1">
                 <div><Image src={ Services } alt={'Services'} className='mx-auto min-w-[80px] shadow-[0px_0px_24px_rgba(0,0,0,0.059)] rounded-full'/></div>
             </div>
@@ -62,7 +76,11 @@ const Toolbar: React.FC = () => {
         {/* Services List */}
         <motion.div 
             animate={isOpen ? 'open' : 'closed'}
-            variants={variants}
+            variants={{
+                open: { opacity: 1, y: 0, },
+                closed: { opacity: 0, y: '1rem' },
+            }}
+            ref={servicesRef}
             className={`absolute bottom-[calc(100%+3rem)] w-full start-0 flex justify-center ${isOpen ? 'visible' : 'invisible'}`}>
             <div className="p-4 rounded-[16px] shadow-md bg-white w-[300px] before:content-[''] before:absolute before:w-0 before:h-0 before:-bottom-[13px] before:start-1/2 before:-translate-x-1/2 before:border-t-[14px] before:border-t-white before:border-x-[12px] before:border-x-transparent before:border-solid flex flex-col gap-y-2">
             {Array.from({ length: 5 }, (_, index) => (

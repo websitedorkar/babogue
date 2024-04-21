@@ -30,13 +30,13 @@ const SearchForm: React.FC = () => {
     setSearchQuery('');
   }
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className='border border-border rounded-lg lg:rounded-full flex items-center gap-3 lg:max-w-[290px] px-6 py-2 h-[48px]'>
+    <form onSubmit={handleSubmit(onSubmit)} className='border border-border rounded-[16px] lg:rounded-full inline-flex items-center gap-3 px-6 py-2 w-full lg:w-auto h-[55px] lg:h-[48px]'>
       <input
         type='text'
         {...register('searchQuery')}
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
-        className='w-full border-none shadow-none outline-none bg-transparent'
+        className='border-none shadow-none outline-none bg-transparent w-full lg:w-auto lg:min-w-[140px] lg:max-w-[140px] transition-all ease-linear duration-200 focus:lg:min-w-[250px] focus:lg:max-w-[250px]'
         placeholder='Search course...'
       />
       <button type='submit' className='p-0 shadow-none border-0 outline-none'>

@@ -38,7 +38,7 @@ export const NewsletterForm: React.FC<{ description: string, placeholder: string
     };
 
     return (
-        <div className='lg:max-w-[275px] w-full space-y-5'>
+        <div className='lg:max-w-[275px] w-full space-y-2'>
             <form onSubmit={handleSubmit} className='border border-border rounded-full flex items-center mb-4 gap-3 ps-7 pe-2 py-2 h-[56px]'>
                 <input
                     type='email'
@@ -53,11 +53,11 @@ export const NewsletterForm: React.FC<{ description: string, placeholder: string
             </form>
             {loading && <div className='text-xs leading-6'>Please wait...</div>}
             {success && (
-                <div className='text-xs leading-7 font-medium'>
+                <div className='text-xs leading-6 font-medium'>
                     Successfully subscribed! <br /> Thank you for subscribing.
                 </div>
             )}
-            {description && <div className='text-xs font-light leading-7'>{description}</div>}
+            {description && <div className='text-sm md:text-base font-light leading-5'>{description}</div>}
         </div>
     );
 };
