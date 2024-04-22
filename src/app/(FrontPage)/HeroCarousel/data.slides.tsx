@@ -18,7 +18,7 @@ const slidesdata: SlidesJSON[] = [
   {
     id: 1,
     caption: "Welcome to Babogue",
-    heading: "Are you exhausted from lack of sleep?",
+    heading: "Are you exhausted <br />from lack of sleep?",
     background: '#C1DED5',
     list: [
       {
@@ -37,7 +37,7 @@ const slidesdata: SlidesJSON[] = [
   {
     id: 2,
     caption: "Welcome to Babogue",
-    heading: "Are you exhausted from lack of sleep?",
+    heading: "Are you exhausted <br />from lack of sleep?",
     background: '#fff4eb',
     list: [
       {
@@ -56,7 +56,7 @@ const slidesdata: SlidesJSON[] = [
   {
     id: 3,
     caption: "Welcome to Babogue",
-    heading: "Are you exhausted from lack of sleep?",
+    heading: "Are you exhausted <br />from lack of sleep?",
     background: '#cdecff',
     list: [
       {

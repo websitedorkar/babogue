@@ -104,19 +104,20 @@ const Header = () => {
     const [isScrolled, setIsScrolled] = useState<string>('hidden');
     const controls = useAnimation();
 
-    const isDesktop = window.innerWidth >= 992;
+    // Check if window is defined before accessing its properties
+    const isDesktop = typeof window !== 'undefined' && window.innerWidth >= 992;
 
     useEffect(() => {
-        let prevScrollPos = window.pageYOffset;
+        let prevScrollPos = typeof window !== 'undefined' ? window.pageYOffset : 0;
     
         function handleScroll() {
-            const currentScrollPos = window.pageYOffset;
+            const currentScrollPos = typeof window !== 'undefined' ? window.pageYOffset : 0;
             if (currentScrollPos <= 400) {
                 setIsScrolled('hidden');
             } else {
-                if(prevScrollPos > currentScrollPos){
+                if (prevScrollPos > currentScrollPos){
                     setIsScrolled('up'); 
-                } else{
+                } else {
                     setIsScrolled('down'); 
                 }
                 // IF SCROLL TOP setIsScrolled will be true and if scroll down setIsScrolled will be false
@@ -124,8 +125,11 @@ const Header = () => {
             prevScrollPos = currentScrollPos;
         }
     
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
+        // Add event listener only if window is defined
+        if (typeof window !== 'undefined') {
+            window.addEventListener('scroll', handleScroll);
+            return () => window.removeEventListener('scroll', handleScroll);
+        }
     }, []);
     
         
