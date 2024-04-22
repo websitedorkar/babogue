@@ -41,7 +41,7 @@ const Helping = () => {
             <div className="container">
                 {/* Section Heading */}
                 <div className="section-title mb-10 text-center">
-                    <h2 className='text-2xl md:text-4xl xl:text-5xl leading-9 xl:leading-11 tracking-tight font-quicksand font-bold font-dark mb-2'>Is it you? We can help you!</h2>
+                    <h2 className='display-2'>Is it you? We can help you!</h2>
                 </div>
 
                 {faqsdata && isMobile ? (

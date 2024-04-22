@@ -32,7 +32,7 @@ const ParentsReviews = () => {
             <div className="container">
                 {/* Section Heading */}
                 <div className="section-title mb-[20px] text-center">
-                    <h2 className='text-xl lg:text-5xl font-quicksand font-bold text-white'>What Parents Are Saying</h2>
+                    <h2 className='display-2 text-white'>What Parents Are Saying</h2>
                 </div>
 
                 {reviewsdata &&

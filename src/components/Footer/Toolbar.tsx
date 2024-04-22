@@ -38,7 +38,7 @@ const Toolbar: React.FC = () => {
         };
     }, []);
   return (
-    <aside className='fixed bottom-0 end-0 start-0 z-20 bg-white text-dark py-1 rounded-t-[16px] border border-solid border-border border-b-0'>
+    <aside className='fixed bottom-0 end-0 start-0 z-20 bg-white text-dark py-1 pb-3 rounded-t-[16px] border border-solid border-border border-b-0'>
         <div className="container">
             <div className="flex items-center">
                 <Link href={'/'} className="flex-grow text-center">

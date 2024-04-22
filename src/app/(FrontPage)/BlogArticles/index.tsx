@@ -32,7 +32,7 @@ const BlogArticles = () => {
             <div className="container">
                 {/* Section Heading */}
                 <div className="section-title mb-10 text-center">
-                    <h2 className='text-2xl xl:text-5xl font-quicksand font-bold text-dark mb-2'>Blog Articles</h2>
+                    <h2 className='display-2 mb-2'>Blog Articles</h2>
                 </div>
 
                 {articlesdata &&
@@ -66,12 +66,12 @@ const BlogArticles = () => {
                             {articlesdata.map((article) => {
                                 return (
                                     <SwiperSlide key={article.id}>
-                                        <div className="bg-white text-dark rounded-[24px] p-4 md:p-5 h-full flex flex-col">
+                                        <div className="bg-white text-dark rounded-[16px] p-4 md:p-4 h-full flex flex-col">
                                             {/* Thumbnail */}
                                             {article.thumbnail &&
                                                 <div className="mb-5 relative">
-                                                    <Image src={article.thumbnail} alt={article.title} className='w-full h-[195px] md:h-[220px] object-cover rounded-[8px]' />
-                                                    {article.date && <span className='uppercase text-xxs md:text-base leading-5 md:leading-7 font-semibold font-quicksand text-white bg-primary inline-flex items-center justify-center absolute top-4 end-4 py-1 px-4 rounded-full'>{article.date}</span>}
+                                                    <Image src={article.thumbnail} alt={article.title} className='w-full h-[195px] md:h-[220px] object-cover rounded-[12px]' />
+                                                    {article.date && <span className='uppercase text-xxs md:text-xs leading-5 md:leading-6 font-semibold font-quicksand text-white bg-primary inline-flex items-center justify-center absolute top-4 end-4 py-1 px-4 rounded-full'>{article.date}</span>}
                                                 </div>
                                             }
                                             <div className="mb-2 px-4 md:px-0">
@@ -82,7 +82,7 @@ const BlogArticles = () => {
                                             {/* Action */}
                                             <div className='mt-auto px-4 md:px-0'>
                                                 <Link href={'#'}>
-                                                    <Button variant={"link"} size={'sm'} className='p-0 underline capitalize font-semibold text-dark' >Read more</Button>
+                                                    <Button variant={"link"} size={'sm'} className='!p-0 underline capitalize font-semibold text-dark' >Read more</Button>
                                                 </Link>
                                             </div>
                                         </div>

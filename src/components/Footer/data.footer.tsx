@@ -1,6 +1,7 @@
 import Gallery_1 from './img/gallery-1.svg';
 import Gallery_2 from './img/gallery-2.svg';
 
+import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram, FaYoutube, FaPinterestP, FaTiktok   } from "react-icons/fa";
 import SOCIAL__FACEBOOK from './img/social--facebook.svg';
 import SOCIAL__TWITTER from './img/social--twitter.svg';
 import SOCIAL__LINKEDIN from './img/social--linkedin.svg';
@@ -144,43 +145,43 @@ interface SocialsJSON {
 const socials: SocialsJSON[] = [
   {
     id: 1,
-    icon: SOCIAL__FACEBOOK,
+    icon: <FaFacebookF />,
     title: "Facebook",
     slug: '/facebook'
   },
   {
     id: 2,
-    icon: SOCIAL__TWITTER,
+    icon: <FaTwitter />,
     title: "Twitter",
     slug: '/twitter'
   },
   {
     id: 3,
-    icon: SOCIAL__LINKEDIN,
+    icon: <FaLinkedinIn />,
     title: "Linkedin",
     slug: '/linkedin'
   },
   {
     id: 4,
-    icon: SOCIAL__INSTAGRAM,
+    icon: <FaInstagram />,
     title: "Instagram",
     slug: '/instagram'
   },
   {
     id: 5,
-    icon: SOCIAL__YOUTUBE,
+    icon: <FaYoutube />,
     title: "Youtube",
     slug: '/youtube'
   },
   {
     id: 6,
-    icon: SOCIAL__PINTEREST,
+    icon: <FaPinterestP  />,
     title: "Pinterest",
     slug: '/pinterest'
   },
   {
     id: 7,
-    icon: SOCIAL__TIKTOK,
+    icon: <FaTiktok />,
     title: "Tiktok",
     slug: '/tiktok'
   },

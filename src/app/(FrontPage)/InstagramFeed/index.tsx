@@ -23,8 +23,8 @@ const InstagramFeed = () => {
             <div className="container">
                 {/* SECTION HEADING */}
                 <div className="text-center mb-6">
-                    <h2 className='text2xl lg:text-5xl font-bold font-quicksand text-dark mb-1'>@babogue_sleep</h2>
-                    <h5 className='text-xs lg:text-xl mb-0'>Hop over to Instagram and tag us babogue_sleep or use #babogue_sleep</h5>
+                    <h2 className='display-2 mb-2'>@babogue_sleep</h2>
+                    <h5 className='text-xs lg:text-xl leading-6 lg:leading-7 mb-0'>Hop over to Instagram and tag us babogue_sleep or use #babogue_sleep</h5>
                 </div>
                 
                 { 

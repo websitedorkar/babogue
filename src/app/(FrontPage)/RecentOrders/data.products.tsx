@@ -13,6 +13,7 @@ interface ProductsJSON {
   price_from: number;
   url: string;
   purchased?: boolean;
+  fadedImage?: boolean;
 }
 
 const productsdata: ProductsJSON[] = [
@@ -41,6 +42,7 @@ const productsdata: ProductsJSON[] = [
     description: 'The Toddler Years Sleep Series will bring you through what to expect from your little ones sleep during this stage.',
     price_from: 399,
     url: '#',
+    fadedImage: true,
   },
   {
     id: 4,
@@ -49,6 +51,7 @@ const productsdata: ProductsJSON[] = [
     description: 'There is so much to learn about your child & their sleep as they grow. Sleeping well at night is essential for school.',
     price_from: 399,
     url: '#',
+    fadedImage: true,
   },
   {
     id: 5,
@@ -57,6 +60,7 @@ const productsdata: ProductsJSON[] = [
     description: 'The Complete Series gives you unlimited access to our full range of sleep courses from Newborn right through to 10 years',
     price_from: 399,
     url: '#',
+    fadedImage: true,
   },
 ]
 

@@ -9,7 +9,7 @@ const RecentOrders = () => {
             <div className="container">
                 {/* Section Heading */}
                 <div className="section-title mb-10 text-center">
-                    <h2 className='text-xl md:text-3xl lg:text-5xl font-quicksand font-bold font-dark mb-2'>Courses Your Ordered Before</h2>
+                    <h2 className='display-2'>Courses Your Ordered Before</h2>
                 </div>
                 
                 <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr)_)] md:grid-cols-[repeat(auto-fill,minmax(200px,1fr)_)] gap-y-6 lg:gap-y-10 gap-[15px] text-center">

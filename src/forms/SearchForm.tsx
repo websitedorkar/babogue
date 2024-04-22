@@ -36,7 +36,7 @@ const SearchForm: React.FC = () => {
         {...register('searchQuery')}
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
-        className='border-none shadow-none outline-none bg-transparent w-full lg:w-auto lg:min-w-[140px] lg:max-w-[140px] transition-all ease-linear duration-200 focus:lg:min-w-[250px] focus:lg:max-w-[250px]'
+        className='border-none shadow-none outline-none bg-transparent w-full lg:w-auto lg:min-w-[140px] lg:max-w-[140px] transition-all ease-linear duration-200 focus:lg:min-w-[200px] focus:lg:max-w-[200px]'
         placeholder='Search course...'
       />
       <button type='submit' className='p-0 shadow-none border-0 outline-none'>

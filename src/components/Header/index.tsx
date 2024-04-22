@@ -74,15 +74,15 @@ const RightBarActions: React.FC<RightBarActionsProps> = ({ list }) => {
                     case 'cart_icon':
                         return (
                             <li key={item.id} className='inline-flex'>
-                                <div className="inline-block relative mx-3">
+                                <Link href={'#'} className="inline-block relative mx-3">
                                     <Image src={item.icon} className='w-[30px] min-w-[30px]' alt="Cart Icon" />
                                     {item.count && <span className="text-xs font-bold text-white bg-primary-light min-w-[21px] w-[21px] h-[21px] inline-flex items-center justify-center rounded-full absolute -top-[5px] -end-[8px]">{item.count}</span>}
-                                </div>
+                                </Link>
                             </li>
                         );
                     case 'icon_box':
                         return (
-                            <li key={item.id} className='inline-flex items-center gap-3'>
+                            <li key={item.id} className='inline-flex items-center gap-3 ps-3'>
                                 <Link href={item.btn_url}>
                                     {item.label && <h6 className='text-xs leading-6'>{item.label}</h6>}
                                     {item.text && <h3 className='text-base font-bold leading-5 mb-0 text-nowrap'>{item.text}</h3>}
@@ -106,6 +106,7 @@ const Header = () => {
 
     // Check if window is defined before accessing its properties
     const isDesktop = typeof window !== 'undefined' && window.innerWidth >= 992;
+    const isMobile = typeof window !== 'undefined' && window.innerWidth <= 992;
 
     useEffect(() => {
         let prevScrollPos = typeof window !== 'undefined' ? window.pageYOffset : 0;
@@ -141,7 +142,7 @@ const Header = () => {
 
             {/* START HEADER */}
             <motion.header
-                className={`header bg-white relative z-[20]`}
+                className={`header bg-white relative z-[20] ${isMobile && isScrolled != 'hidden' ? 'header--sticky direction-' + isScrolled : ''}`}
                 initial={{ opacity: 1 }}
                 animate={controls}
             >

@@ -65,7 +65,7 @@ const SleepConsultant = () => {
                         </div>
                         :
                         <div>
-                            <ul className="flex flex-col space-y-4 lg:space-y-8 mb-10">
+                            <ul className="flex flex-col space-y-3 lg:space-y-5 mb-10">
                                 {consultantsdata.map(item => (
                                     <li key={item.id} className={`flex items-center gap-3 ${item.className}`}>
                                         {item.icon && <span className='min-w-[65px] w-[65px] lg:w-[80px] lg:min-w-[80px]'><Image src={item.icon} alt={'title'} /></span>}

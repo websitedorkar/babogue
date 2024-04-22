@@ -26,10 +26,9 @@ interface SubMenuItem {
 }
 
 const SubmenuItem: React.FC<{ submenuItem: SubMenuItem; index: number; list: any }> = ({ submenuItem, index, list }) => {
-  const isLastChild = index === list.length - 1;
   return (
     <li>
-      <Link href={submenuItem.slug} className={`text-sm py-[10px] flex items-center leading-5 font-normal font-roboto  ${!isLastChild && 'border-b border-border'}`}>
+      <Link href={submenuItem.slug} className={`text-sm py-[10px] flex items-center leading-5 font-normal font-roboto`}>
         {submenuItem.title}
       </Link>
     </li>
@@ -89,7 +88,7 @@ const MenuLink: React.FC<{ menu: MenuItem; index: number; list: any }> = ({ menu
             open: { opacity: 1, height: 'auto' },
             closed: { opacity: 0, height: 0 },
           }}
-          className="pl-4 overflow-hidden"
+          className="pl-4 bg-neutral-100 overflow-hidden"
           ref={menuRef}
         >
           {menu.submenu.map((submenuItem, idx) => (
@@ -106,7 +105,7 @@ const Path: React.FC<PathProps> = ({ variants, ...props }) => (
   <motion.path
     fill="transparent"
     strokeWidth="3"
-    stroke="hsl(0, 0%, 18%)"
+    stroke="currentColor"
     strokeLinecap="round"
     {...props}
     variants={variants}
@@ -131,7 +130,7 @@ interface ButtonToggleProps {
   buttonRef: React.RefObject<HTMLButtonElement>; // Add buttonRef to ButtonToggleProps
 }
 export const ButtonToggle: React.FC<ButtonToggleProps> = ({ toggle, isOpen, buttonRef }) => (
-  <Button variant={'ghost'} size={'sm'} className='p-0 h-auto' onClick={toggle} ref={buttonRef}>
+  <Button variant={'ghost'} size={'sm'} className='p-0 h-auto text-dark' onClick={toggle} ref={buttonRef}>
     <svg width="26" height="26" viewBox="0 0 23 23">
       <Path
         d="M 2 2.5 L 20 2.5"
