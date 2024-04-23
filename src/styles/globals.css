@@ -140,7 +140,7 @@
 
 /* .Header Sticky */
 .header--sticky {
-  @apply fixed top-0 -translate-y-[100px] bg-white w-full pb-2 shadow-sm;
+  @apply fixed top-0 -translate-y-[250px] bg-white w-full pb-2 shadow-sm;
 }
 
 .header--sticky.direction-up,
@@ -151,8 +151,8 @@
 
 @-webkit-keyframes header_animation {
   0% {
-    -webkit-transform: translateY(-100px);
-    transform: translateY(-100px);
+    -webkit-transform: translateY(-250px);
+    transform: translateY(-250px);
   }
 
   100% {
@@ -163,8 +163,8 @@
 
 @keyframes header_animation {
   0% {
-    -webkit-transform: translateY(-100px);
-    transform: translateY(-100px);
+    -webkit-transform: translateY(-250px);
+    transform: translateY(-250px);
   }
 
   100% {
@@ -180,14 +180,14 @@
 
 @-webkit-keyframes revert_header_animation {
   100% {
-    -webkit-transform: translateY(-100px);
-    transform: translateY(-100px);
+    -webkit-transform: translateY(-250px);
+    transform: translateY(-250px);
   }
 }
 
 @keyframes revert_header_animation {
   100% {
-    -webkit-transform: translateY(-100px);
-    transform: translateY(-100px);
+    -webkit-transform: translateY(-250px);
+    transform: translateY(-250px);
   }
 }

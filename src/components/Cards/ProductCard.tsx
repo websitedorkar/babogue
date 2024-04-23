@@ -32,7 +32,7 @@ const ProductMedia: React.FC<{ thumbnail: any, heading: string, fadedImage?: boo
         <Image src={thumbnail} className='inline-block' alt={heading} />
     </div>}
     {heading && <h2 className='text-xxs lg:text-sm leading-[1] font-bold text-dark md:mb-3'>{heading}</h2>}
-</div>
+    </div>
   );
   
 

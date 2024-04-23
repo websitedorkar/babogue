@@ -31,7 +31,6 @@ const HeroCarousel = () => {
     const visibleMask = `repeating-linear-gradient(to right, rgba(0,0,0,0) 0px, rgba(0,0,0,0) 0px, rgba(0,0,0,1) 0px, rgba(0,0,0,1) 30px)`;
     return (
         <section className='pb-0 relative overflow-hidden hero-carousel bg-white'>
-            <Image src={TopShape} alt={"Shape Top"} className='-top-[1px] start-0 end-0 w-full absolute z-[2]' />
             <Image src={BottomShape} alt={"Shape Top"} className='-bottom-[1px] start-0 end-0 w-full absolute z-[6]' />
 
             <div className="relative">

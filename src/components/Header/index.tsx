@@ -113,7 +113,7 @@ const Header = () => {
     
         function handleScroll() {
             const currentScrollPos = typeof window !== 'undefined' ? window.pageYOffset : 0;
-            if (currentScrollPos <= 400) {
+            if (currentScrollPos <= 600) {
                 setIsScrolled('hidden');
             } else {
                 if (prevScrollPos > currentScrollPos){
@@ -140,22 +140,14 @@ const Header = () => {
             <AnnouncementBar text={'SUBSCRIBE TO OUR FREE 7 STEPS TO BETTER SLEEP GUIDE'} />
             {/* ANNOUNCEMENT BAR */}
 
-            {/* START SCROLL UP */}
-            <motion.div className='header__scroll fixed z-20 bg-white w-full py-2 top-0 start-0 end-0'>
-                <Image src={TopShape} alt='Shape' className='absolute top-[calc(100%-2px)] w-full start-0 end-0'/>
-                <div className="container">
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos, voluptates.
-                </div>
-            </motion.div>
-            {/* END SCROLL UP */}
-
             {/* START HEADER */}
             <motion.header
-                // className={`header bg-white relative z-[20] ${isMobile && isScrolled != 'hidden' ? 'header--sticky direction-' + isScrolled : ''}`}
-                className={`header bg-white relative z-[20]`}
+                className={`header bg-white relative z-[20] ${isDesktop && isScrolled != 'hidden' ? 'header--sticky direction-' + isScrolled : ''}`}
                 initial={{ opacity: 1 }}
                 animate={controls}
             >
+                <Image src={TopShape} alt='Shape' className='absolute top-[calc(100%-2px)] w-full start-0 end-0'/>
+
                 <div className="container">
                     <div className="header__top py-2 md:py-3">
                         <div className="grid grid-cols-3 items-center">
