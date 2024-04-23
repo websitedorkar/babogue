@@ -1,7 +1,6 @@
 import * as React from "react"
 import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu"
 import { cva } from "class-variance-authority"
-import { ChevronDown } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
@@ -92,7 +91,7 @@ const NavigationMenuViewport = React.forwardRef<
   <div className={cn("absolute left-0 top-full flex justify-start mt-11")}>
     <NavigationMenuPrimitive.Viewport
       className={cn(
-        "origin-top-center relative mt-1.5 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-[16px] border-none bg-white text-dark data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 md:w-[var(--radix-navigation-menu-viewport-width)] dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-50",
+        "origin-top-center relative shadow-[0px_0px_10px_0px_rgba(0,0,0,0.075)] mt-1.5 h-[var(--radix-navigation-menu-viewport-height)] w-full rounded-[16px] border-none bg-white text-dark data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 md:w-[var(--radix-navigation-menu-viewport-width)] dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-50 before:content-[''] before:absolute before:w-0 before:h-0 before:-top-[9px] before:start-[5%] before:border-b-[10px] before:border-b-white before:border-x-[12px] before:border-x-transparent before:border-solid overflow-visible",
         className
       )}
       ref={ref}

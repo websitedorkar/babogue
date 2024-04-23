@@ -66,7 +66,7 @@ const BlogArticles = () => {
                             {articlesdata.map((article) => {
                                 return (
                                     <SwiperSlide key={article.id}>
-                                        <div className="bg-white text-dark rounded-[16px] p-4 md:p-4 h-full flex flex-col">
+                                        <div className="bg-white text-dark rounded-[16px] p-3 h-full flex flex-col">
                                             {/* Thumbnail */}
                                             {article.thumbnail &&
                                                 <div className="mb-5 relative">

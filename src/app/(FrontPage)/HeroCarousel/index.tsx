@@ -12,7 +12,7 @@ import Stars_1 from './img/stars-1.png';
 import Stars_2 from './img/stars-2.png';
 
 // Import Swiper React components
-import { Pagination, EffectFade } from 'swiper/modules';
+import { Pagination, EffectFade, Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 // Import Swiper styles
 import 'swiper/css';
@@ -37,16 +37,19 @@ const HeroCarousel = () => {
                 {slidesdata &&
                     <div>
                         <Swiper
-                            modules={[EffectFade, Pagination]}
+                            modules={[EffectFade, Pagination, Autoplay]}
                             spaceBetween={40}
                             slidesPerView={1}
-                            autoplay={true}
                             effect={"fade"}
                             fadeEffect= {{ crossFade: true }}
                             className='slide-equal-height'
                             // install Swiper modules
                             pagination={{ clickable: true }}
                             speed={500}
+                            autoplay={{
+                              delay: 5000,
+                              disableOnInteraction: false,
+                            }}
                         >
                             {slidesdata.map((slide) => {
                                 return (

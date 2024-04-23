@@ -1,3 +1,4 @@
+"use client";
 import React, { useState, useEffect, useRef } from 'react';
 import { Button } from '../ui/button';
 import Image from 'next/image';
@@ -47,6 +48,7 @@ const MenuLink: React.FC<{ menu: MenuItem; index: number; list: any }> = ({ menu
     if (menu.submenu) {
       event.preventDefault(); // Prevent default link behavior if the menu has a submenu
       toggleSubMenu(); // Toggle the submenu visibility
+      console.log("isOpen", isOpen);
     }
     event.stopPropagation(); // Stop propagation to prevent closing the menu
   };
@@ -55,9 +57,9 @@ const MenuLink: React.FC<{ menu: MenuItem; index: number; list: any }> = ({ menu
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        setIsOpen(false);
-      }
+      // if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+      //   setIsOpen(false);
+      // }
     }
 
     document.body.addEventListener('click', handleClickOutside);
@@ -70,12 +72,12 @@ const MenuLink: React.FC<{ menu: MenuItem; index: number; list: any }> = ({ menu
     <li>
       <a
         href={menu.slug}
-        className={`text-base py-[12px] flex items-center leading-6 font-normal font-roboto ${!isLastChild && 'border-b border-border'}`}
+        className={`text-base py-[12px] flex items-center leading-6 font-normal font-roboto ${!isLastChild && 'border-b border-border'} ${menu.submenu ? 'has-submenu' : '' }`}
         onClick={handleMenuLinkClick}
       >
         {menu.title}
         {menu.submenu && (
-          <span className="ms-auto" onClick={toggleSubMenu}>
+          <span className="ms-auto">
             <Image src={ICON_DOWN} alt="ICON DOWN" />
           </span>
         )}
@@ -175,16 +177,17 @@ const Toggler: React.FC = () => {
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      if (
-        buttonRef.current &&
-        !buttonRef.current.contains(event.target as Node) &&
-        menuRef.current &&
-        !menuRef.current.contains(event.target as Node)
-      ) {
+      // Check if the button is clicked
+      const buttonIsClicked = buttonRef.current && buttonRef.current.contains(event.target as Node);
+      // Check if the menu is clicked
+      const menuIsClicked = menuRef.current && menuRef.current.contains(event.target as Node);
+      
+      // Close the menu only if neither the button nor the menu is clicked
+      if (!buttonIsClicked && !menuIsClicked) {
         setIsOpen(false);
       }
     }
-
+  
     document.body.addEventListener('click', handleClickOutside);
     return () => {
       document.body.removeEventListener('click', handleClickOutside);

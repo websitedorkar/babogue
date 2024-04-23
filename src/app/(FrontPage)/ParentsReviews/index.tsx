@@ -71,7 +71,7 @@ const ParentsReviews = () => {
                             {reviewsdata.map((item) => {
                                 return (
                                     <SwiperSlide key={item.id}>
-                                        <div className="bg-white text-dark rounded-[24px] p-7 h-full flex flex-col">
+                                        <div className="bg-white text-dark rounded-[24px] p-4 h-full flex flex-col">
                                             <div className="flex items-center justify-between gap-2 mb-5">
                                                 {item.rating && <span className='rating--list' dangerouslySetInnerHTML={{ __html: Config.starRating(item.rating) }} />}
                                                 <span className='w-[19px] h-[19px] rounded-full'>

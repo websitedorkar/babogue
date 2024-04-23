@@ -100,9 +100,14 @@ const RightBarActions: React.FC<RightBarActionsProps> = ({ list }) => {
     )
 }
 
+const HeaderMiddle = () => {
+    
+}
+
 const Header = () => {
     const [isScrolled, setIsScrolled] = useState<string>('hidden');
     const controls = useAnimation();
+    const [headerHeight, setHeaderHeight] = useState<number>(0); // State to store header height
 
     // Check if window is defined before accessing its properties
     const isDesktop = typeof window !== 'undefined' && window.innerWidth >= 992;
@@ -129,10 +134,29 @@ const Header = () => {
         // Add event listener only if window is defined
         if (typeof window !== 'undefined') {
             window.addEventListener('scroll', handleScroll);
-            return () => window.removeEventListener('scroll', handleScroll);
+            window.addEventListener('resize', handleResize); // Add resize event listener
+            return () => {
+                window.removeEventListener('scroll', handleScroll);
+                window.removeEventListener('resize', handleResize); // Remove resize event listener on component unmount
+            }
         }
     }, []);
-    
+
+    useEffect(() => {
+        // Calculate and set the height of the header
+        const header = document.querySelector('.header');
+        if (header) {
+            setHeaderHeight(header.clientHeight);
+        }
+    }, []);
+
+    // Function to handle window resize
+    const handleResize = () => {
+        const headerElement = document.querySelector('.header');
+        if (headerElement) {
+            setHeaderHeight(headerElement.clientHeight); // Recalculate and set the header height on resize
+        }
+    }
         
     return (
         <>
@@ -141,43 +165,47 @@ const Header = () => {
             {/* ANNOUNCEMENT BAR */}
 
             {/* START HEADER */}
-            <motion.header
-                className={`header bg-white relative z-[20] ${isDesktop && isScrolled != 'hidden' ? 'header--sticky direction-' + isScrolled : ''}`}
-                initial={{ opacity: 1 }}
-                animate={controls}
-            >
-                <Image src={TopShape} alt='Shape' className='absolute top-[calc(100%-2px)] w-full start-0 end-0'/>
+            <div className="header__space relative" style={{
+                paddingBottom: headerHeight + 'px',
+            }}>
+                <motion.header
+                    className={`header absolute top-0 start-0 end-0 w-full bg-white z-[20] ${isDesktop && isScrolled != 'hidden' ? 'header--sticky direction-' + isScrolled : ''}`}
+                    initial={{ opacity: 1 }}
+                    animate={controls}
+                >
+                    <Image src={TopShape} alt='Shape' className='absolute top-[calc(100%-2px)] w-full start-0 end-0'/>
 
-                <div className="container">
-                    <div className="header__top py-2 md:py-3">
-                        <div className="grid grid-cols-3 items-center">
-                            <div className="header__search">
-                                <Search />
-                            </div>
-                            <div className="header__logo text-center flex items-center justify-center">
-                                <Link href={'/'} className='inline-block max-w-[90px] lg:max-w-[140px]'>
-                                    <Image src={LOGO} alt={"LOGO"} className='' />
-                                </Link>
-                            </div>
-                            <div className="header__rightbar text-end">
-                                <div className="block lg:hidden"><Toggler /></div>
-                                <div className='hidden lg:block'>
-                                    <RightBarActions list={rightbars} />
+                    <div className="container">
+                        <div className="header__top py-2 md:py-3">
+                            <div className="grid grid-cols-3 items-center">
+                                <div className="header__search">
+                                    <Search />
+                                </div>
+                                <div className="header__logo text-center flex items-center justify-center">
+                                    <Link href={'/'} className='inline-block max-w-[90px] lg:max-w-[140px]'>
+                                        <Image src={LOGO} alt={"LOGO"} className='' />
+                                    </Link>
+                                </div>
+                                <div className="header__rightbar text-end">
+                                    <div className="block lg:hidden"><Toggler /></div>
+                                    <div className='hidden lg:block'>
+                                        <RightBarActions list={rightbars} />
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                {/* <div className={`header__nav ${isDesktop && isScrolled != 'hidden' ? 'header--sticky direction-' + isScrolled : ''}`}> */}
-                <div className={`header__nav`}>
-                    <div className="container">
-                        <div className="hidden lg:block border-t border-border header__navbar"><Navbar /></div>
+                    {/* <div className={`header__nav ${isDesktop && isScrolled != 'hidden' ? 'header--sticky direction-' + isScrolled : ''}`}> */}
+                    <div className={`header__nav`}>
+                        <div className="container">
+                            <div className="hidden lg:block border-t border-border header__navbar"><Navbar /></div>
+                        </div>
                     </div>
-                </div>
-            </motion.header>
+                </motion.header>
+            </div>
             {/* END HEADER */}
         </>
     )
 }
 
-export default Header
+export default Header;
