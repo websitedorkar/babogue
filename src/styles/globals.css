@@ -126,7 +126,7 @@
   --swiper-pagination-bullet-inactive-color: #374D59;
   --swiper-pagination-color: #374D59;
   --swiper-pagination-bullet-horizontal-gap: 6px;
-  @apply relative pt-3
+  @apply relative pt-[30px];
 }
 
 .default-pagination-light .swiper-pagination {

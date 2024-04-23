@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import LOGO from './img/logo.svg';
-import LOGO_SMALL from './img/logo-small.svg';
+import TopShape from './img/shape-top.svg';
 import Image from 'next/image';
 import Navbar from './Navbar';
 import {
@@ -140,9 +140,19 @@ const Header = () => {
             <AnnouncementBar text={'SUBSCRIBE TO OUR FREE 7 STEPS TO BETTER SLEEP GUIDE'} />
             {/* ANNOUNCEMENT BAR */}
 
+            {/* START SCROLL UP */}
+            <motion.div className='header__scroll fixed z-20 bg-white w-full py-2 top-0 start-0 end-0'>
+                <Image src={TopShape} alt='Shape' className='absolute top-[calc(100%-2px)] w-full start-0 end-0'/>
+                <div className="container">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos, voluptates.
+                </div>
+            </motion.div>
+            {/* END SCROLL UP */}
+
             {/* START HEADER */}
             <motion.header
-                className={`header bg-white relative z-[20] ${isMobile && isScrolled != 'hidden' ? 'header--sticky direction-' + isScrolled : ''}`}
+                // className={`header bg-white relative z-[20] ${isMobile && isScrolled != 'hidden' ? 'header--sticky direction-' + isScrolled : ''}`}
+                className={`header bg-white relative z-[20]`}
                 initial={{ opacity: 1 }}
                 animate={controls}
             >
@@ -166,7 +176,8 @@ const Header = () => {
                         </div>
                     </div>
                 </div>
-                <div className={`header__nav ${isDesktop && isScrolled != 'hidden' ? 'header--sticky direction-' + isScrolled : ''}`}>
+                {/* <div className={`header__nav ${isDesktop && isScrolled != 'hidden' ? 'header--sticky direction-' + isScrolled : ''}`}> */}
+                <div className={`header__nav`}>
                     <div className="container">
                         <div className="hidden lg:block border-t border-border header__navbar"><Navbar /></div>
                     </div>
