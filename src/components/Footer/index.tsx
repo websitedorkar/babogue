@@ -15,16 +15,16 @@ const Footer = () => {
 
     return (
         <>
-            <footer className='md:sticky md:bottom-0 z-1 footer bg-primary px-[5px] md:px-0 text-white pt-[35px] md:pt-[70px] pb-[25px]'>
+            <footer className='lg:sticky lg:bottom-0 z-1 footer bg-primary px-[5px] md:px-0 text-white pt-[35px] md:pt-[70px] pb-[25px]'>
                 <div className="container">
-                    <div className='xl:grid-cols-none xl:grid-flow-col grid grid-cols-[5fr_6fr] lg:grid-cols-3 gap-y-10 gap-x-2 md:gap-x-8'>
+                    <div className='lg:grid-cols-none lg:grid-flow-col grid grid-cols-[5fr_6fr] md:grid-cols-3 gap-y-10 gap-x-2 md:gap-x-8'>
                         {
                             blocks && blocks.map((block) => {
                                 switch (block.type) {
                                     case 'newsletter':
                                         return (
                                             <div className='footer__block order-last lg:order-first col-span-2' key={block.id}>
-                                                {block.heading && <h3 className='text-sm lg:text-xl leading-6 font-quicksand font-bold mb-4 md:mb-6'>{block.heading}</h3>}
+                                                {block.heading && <h3 className='text-sm xl:text-xl leading-6 font-quicksand font-bold mb-4 md:mb-6'>{block.heading}</h3>}
                                                 <NewsletterForm description={block.description ?? ''} placeholder={block.placeholder ?? ''} />
                                             </div>
                                         )
@@ -32,11 +32,11 @@ const Footer = () => {
                                         return (
                                             <div className='footer__block' key={block.id}>
                                                 {/* Render Linklist block */}
-                                                {block.heading && <h3 className='text-sm lg:text-xl leading-6 font-quicksand font-bold mb-4 md:mb-6'>{block.heading}</h3>}
-                                                <ul className='flex flex-col gap-0 md:gap-3'>
+                                                {block.heading && <h3 className='text-sm xl:text-xl leading-6 font-quicksand font-bold mb-4 md:mb-6'>{block.heading}</h3>}
+                                                <ul className='flex flex-col gap-0 xl:gap-3'>
                                                     {block.list.map((link, index) => (
                                                         <li key={index}>
-                                                            <Link href={link.slug} className='font-semibold text-xxs md:text-sm leading-5 md:leading-6 text-white transition-all duration-200 hover:text-opacity-75'>{link.name}</Link>
+                                                            <Link href={link.slug} className='font-semibold text-xxs xl:text-sm leading-5 lg:leading-6 text-white transition-all duration-200 hover:text-opacity-75'>{link.name}</Link>
                                                         </li>
                                                     ))}
                                                 </ul>
@@ -46,10 +46,10 @@ const Footer = () => {
                                         return (
                                             <div className='footer__block' key={block.id}>
                                                 {/* Render Gallery block */}
-                                                {block.heading && <h3 className='text-sm lg:text-xl leading-6 font-quicksand font-bold mb-4 md:mb-6'>{block.heading}</h3>}
+                                                {block.heading && <h3 className='text-sm xl:text-xl leading-6 font-quicksand font-bold mb-4 md:mb-6'>{block.heading}</h3>}
                                                 <div className='flex flex-wrap gap-3 md:gap-x-6'>
                                                     {block.list.map((image, index) => (
-                                                        <Image key={index} src={image.image} alt={`Gallery Image ${index}`} className='h-[65px] md:h-[100px] w-auto max-w-1/2' />
+                                                        <Image key={index} src={image.image} alt={`Gallery Image ${index}`} className='h-[65px] xl:h-[100px] w-auto max-w-1/2' />
                                                     ))}
                                                 </div>
                                             </div>

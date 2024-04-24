@@ -2,12 +2,12 @@
 
 import React from 'react';
 import { articlesdata } from './data.articles';
-import Google from './img/google.svg';
 import BackIcon from './img/back.svg';
 import NextIcon from './img/next.svg';
 import TopShape from './img/shape-top.svg';
 import BottomShape from './img/shape-bottom.svg';
-import babySleeping from './img/babySleeping.svg';
+import TopShapeMobile from './img/shape-top-mobile.svg';
+import BottomShapeMobile from './img/shape-bottom-mobile.svg';
 
 // Import Swiper React components
 import { Navigation, Pagination } from 'swiper/modules';
@@ -21,14 +21,26 @@ import Config from '@/lib/config';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
+import { useMediaQuery } from '@/hooks/use-media-query';
 
 const BlogArticles = () => {
+    // Check if window is defined before accessing its properties
+    const isDesktop = useMediaQuery("(min-width: 768px)");
+    const isMobile = useMediaQuery("(max-width: 768px)");
 
     return (
         <section className='pt-[50px] px-[15px] md:px-0 md:pt-[100px] pb-[70px] md:pb-[120px] bg-sky relative overflow-hidden'>
-            <Image src={TopShape} alt={"Shape Top"} className='-top-[1px] start-0 end-0 w-full absolute' />
-            <Image src={BottomShape} alt={"Shape Top"} className='-bottom-[1px] start-0 end-0 w-full absolute' />
-
+            {isMobile ?
+                <>
+                <Image src={TopShapeMobile} alt={"Shape Top"} className='-top-[1px] start-0 end-0 w-full absolute' />
+                <Image src={BottomShapeMobile} alt={"Shape Top"} className='-bottom-[1px] start-0 end-0 w-full absolute' />
+                </>
+                :
+                <>
+                    <Image src={TopShape} alt={"Shape Top"} className='-top-[1px] start-0 end-0 w-full absolute' />
+                    <Image src={BottomShape} alt={"Shape Top"} className='-bottom-[1px] start-0 end-0 w-full absolute' />
+                </>
+            }
             <div className="container">
                 {/* Section Heading */}
                 <div className="section-title mb-10 text-center">

@@ -27,7 +27,7 @@ const ProductBadge: React.FC<{heading: string;}> = ({ heading }) => (
   
 
 const ProductMedia: React.FC<{ thumbnail: any, heading: string, fadedImage?: boolean}> = ({ thumbnail, heading, fadedImage }) => (
-    <div className='min-w-[100px] lg:min-w-[120px] py-5 md:py-0'>
+    <div className='min-w-[100px] lg:min-w-[120px] py-6 md:py-0 relative before:content-[""] before:w-[1px] before:h-[calc(100%-2rem)] before:bg-border before:absolute before:end-0 before:top-1/2 before:-translate-y-1/2 md:before:content-[unset]'>
     {thumbnail && <div className={`w-[80px] min-w-[80px] h-[80px] lg:w-[115px] lg:h-[115px] lg:min-w-[115px] border-[#C1DED5] mb-2 md:mb-3 rounded-full flex items-center justify-center p-[3px] md:p-[6px] mx-auto border-dashed border-2 ${ fadedImage && fadedImage ? 'grayscale opacity-50' : ''}`}>
         <Image src={thumbnail} className='inline-block' alt={heading} />
     </div>}
@@ -37,14 +37,14 @@ const ProductMedia: React.FC<{ thumbnail: any, heading: string, fadedImage?: boo
   
 
 const ProductInfo: React.FC<{ description: string, badge?: string}> = ({ description, badge }) => (
-    <div className='ps-3 lg:p-0 md:border-l-0 relative py-3 pt-6 md:py-0'>
+    <div className='ps-3 lg:p-0 md:border-l-0 relative py-3 pt-7 md:py-0'>
     {badge && <div className='md:hidden'><ProductBadge heading={badge} /></div>}
     {description && <div className='text-[12px] leading-[1.2] md:text-xs font-normal text-dark'>{description}</div>}
 </div>
   );
 
 const ProductAction: React.FC<{ price: number; button_label: string, button_url: string, purchased?: boolean }> = ({ price, button_label, button_url, purchased}) => (
-    <div className='ps-3 md:p-0 md:border-l-0 mb-3 md:mb-0'>
+    <div className='ps-3 md:p-0 md:border-l-0 mb-4 md:mb-0'>
       { purchased && purchased ? 
       <div className="flex items-center justify-between gap-1">
         <Link href={'#'} className='flex-grow text-white'>
@@ -64,12 +64,12 @@ const ProductAction: React.FC<{ price: number; button_label: string, button_url:
 //   md:border-b md:border-border md:pb-3 mb-2
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   return (
-    <div className="flex gap-2 md:flex-col border border-solid border-border rounded-[16px] px-2 lg:px-3 md:py-3 md:pt-6 relative z-[1] bg-white">
+    <div className="grid grid-cols-[2fr_5fr] md:flex md:flex-col border border-solid border-border rounded-[16px] px-3 lg:px-3 md:py-3 md:pt-6 relative z-[1] bg-white">
          {product.badge && <div className='hidden md:block'><ProductBadge heading={product.badge} /></div>}
         {product.banner && <ProductMedia fadedImage={product.fadedImage} heading={product.name} thumbnail={product.banner} />}
         
          {/* Mobile View */}
-         <div  className='block md:hidden relative before:content-[""] before:w-[1px] before:h-[calc(100%-2rem)] before:bg-border before:absolute before:start-0 before:top-1/2 before:-translate-y-1/2 md:before:content-[unset]'>
+         <div  className='block md:hidden'>
             {product.description && <div className='mb-2'>
                 <ProductInfo badge={product.badge} description={product.description}/>
                 </div>

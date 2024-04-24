@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import LOGO from './img/logo.svg';
 import TopShape from './img/shape-top.svg';
+import TopShapeMobile from './img/shape-top-mobile.svg';
 import Image from 'next/image';
 import Navbar from './Navbar';
 import {
@@ -20,6 +21,7 @@ import { Button } from '../ui/button';
 import Search from './Search';
 import Toggler from './Toggler';
 import { motion, useAnimation } from 'framer-motion';
+import { useMediaQuery } from '@/hooks/use-media-query';
 
 const AnnouncementBar: React.FC<{ text: string }> = ({ text }) => {
     return (
@@ -73,7 +75,7 @@ const RightBarActions: React.FC<RightBarActionsProps> = ({ list }) => {
                         );
                     case 'cart_icon':
                         return (
-                            <li key={item.id} className='inline-flex'>
+                            <li key={item.id} className='inline-flex me-5'>
                                 <Link href={'#'} className="inline-block relative mx-3">
                                     <Image src={item.icon} className='w-[30px] min-w-[30px]' alt="Cart Icon" />
                                     {item.count && <span className="text-xs font-bold text-white bg-primary-light min-w-[21px] w-[21px] h-[21px] inline-flex items-center justify-center rounded-full absolute -top-[5px] -end-[8px]">{item.count}</span>}
@@ -82,7 +84,7 @@ const RightBarActions: React.FC<RightBarActionsProps> = ({ list }) => {
                         );
                     case 'icon_box':
                         return (
-                            <li key={item.id} className='inline-flex items-center gap-3 ps-3'>
+                            <li key={item.id} className='inline-flex items-center gap-3'>
                                 <Link href={item.btn_url}>
                                     {item.label && <h6 className='text-xs leading-6'>{item.label}</h6>}
                                     {item.text && <h3 className='text-base font-bold leading-5 mb-0 text-nowrap'>{item.text}</h3>}
@@ -100,18 +102,14 @@ const RightBarActions: React.FC<RightBarActionsProps> = ({ list }) => {
     )
 }
 
-const HeaderMiddle = () => {
-    
-}
-
 const Header = () => {
     const [isScrolled, setIsScrolled] = useState<string>('hidden');
     const controls = useAnimation();
     const [headerHeight, setHeaderHeight] = useState<number>(0); // State to store header height
 
     // Check if window is defined before accessing its properties
-    const isDesktop = typeof window !== 'undefined' && window.innerWidth >= 992;
-    const isMobile = typeof window !== 'undefined' && window.innerWidth <= 992;
+    const isDesktop = useMediaQuery("(min-width: 768px)");
+    const isMobile = useMediaQuery("(max-width: 768px)");
 
     useEffect(() => {
         let prevScrollPos = typeof window !== 'undefined' ? window.pageYOffset : 0;
@@ -173,7 +171,11 @@ const Header = () => {
                     initial={{ opacity: 1 }}
                     animate={controls}
                 >
+                    { isMobile ? 
+                    <Image src={TopShapeMobile} alt='Shape' className='absolute top-[calc(100%-2px)] w-full start-0 end-0'/>
+                    :
                     <Image src={TopShape} alt='Shape' className='absolute top-[calc(100%-2px)] w-full start-0 end-0'/>
+                    }
 
                     <div className="container">
                         <div className="header__top py-2 md:py-3">

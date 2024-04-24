@@ -10,13 +10,24 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { useMediaQuery } from '@/hooks/use-media-query';
+import TopShapeMobile from './img/shape-top-mobile.svg';
+import BottomShapeMobile from './img/shape-bottom-mobile.svg';
 
 const FreeConsultant = () => {
     const isMobile = useMediaQuery("(max-width: 667px)");
     return (
         <section className='bg-[#C1DED5] pt-[50px] relative overflow-hidden' style={{ backgroundImage: `url(${Pattern.src})` }}>
-            <Image src={TopShape} alt={"Shape Top"} className='-top-[1px] start-0 end-0 w-full absolute' />
-            <Image src={BottomShape} alt={"Shape Top"} className='-bottom-[1px] start-0 end-0 w-full absolute' />
+            {isMobile ?
+                <>
+                <Image src={TopShapeMobile} alt={"Shape Top"} className='-top-[1px] start-0 end-0 w-full absolute' />
+                <Image src={BottomShapeMobile} alt={"Shape Top"} className='-bottom-[1px] start-0 end-0 w-full absolute' />
+                </>
+                :
+                <>
+                    <Image src={TopShape} alt={"Shape Top"} className='-top-[1px] start-0 end-0 w-full absolute' />
+                    <Image src={BottomShape} alt={"Shape Top"} className='-bottom-[1px] start-0 end-0 w-full absolute' />
+                </>
+            }
             <div className="container">
                 <div className="grid md:grid-cols-[3fr_4fr] lg:grid-cols-[415px_1fr] items-center">
                     <div className="text-center pt-[50px] md:pb-[100px] lg:pb-[30px] lg:min-h-[75vh] flex flex-col justify-center items-center">
