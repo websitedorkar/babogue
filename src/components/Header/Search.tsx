@@ -35,6 +35,7 @@ const Search: React.FC = () => {
 
     return (
         <>
+        <div className="fixed w-full h-full bg-black bg-opacity-70 z-[20] start-0 top-0"></div>
             <div className='flex lg:hidden'>
                 <Button variant={'ghost'} className="p-0 h-auto" onClick={toggleForm} ref={buttonRef}>
                     <Image src={BUTTON_SEARCH} alt={'search'} />
@@ -55,7 +56,7 @@ const Search: React.FC = () => {
                     </div>
                 </motion.div>
             </div>
-            <div className="hidden lg:block">
+            <div className="hidden lg:block relative z-[30]">
                 <SearchForm/>
             </div>
         </>
