@@ -40,7 +40,7 @@ NavigationMenuList.displayName = NavigationMenuPrimitive.List.displayName
 const NavigationMenuItem = NavigationMenuPrimitive.Item
 
 const navigationMenuTriggerStyle = cva(
-  "group inline-flex h-10 w-max items-center justify-center rounded-full bg-white px-5 py-1 text-base font-semibold transition-colors hover:bg-primary hover:text-white focus:bg-primary focus:text-white focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-primary data-[active]:text-white data-[state=open]:bg-primary data-[state=open]:text-white dark:bg-neutral-950 dark:hover:bg-neutral-800 dark:hover:text-neutral-50 dark:focus:bg-neutral-800 dark:focus:text-neutral-50 dark:data-[active]:bg-neutral-800/50 dark:data-[state=open]:bg-neutral-800/50"
+  " group inline-flex h-10 w-max items-center justify-center rounded-full bg-white px-5 py-1 text-base font-semibold transition-colors hover:bg-primary hover:text-white focus:bg-primary focus:text-white focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-primary data-[active]:text-white data-[state=open]:bg-primary data-[state=open]:text-white dark:bg-neutral-950 dark:hover:bg-neutral-800 dark:hover:text-neutral-50 dark:focus:bg-neutral-800 dark:focus:text-neutral-50 dark:data-[active]:bg-neutral-800/50 dark:data-[state=open]:bg-neutral-800/50"
 )
 
 const NavigationMenuTrigger = React.forwardRef<
@@ -49,7 +49,7 @@ const NavigationMenuTrigger = React.forwardRef<
 >(({ className, children, ...props }, ref) => (
   <NavigationMenuPrimitive.Trigger
     ref={ref}
-    className={cn(navigationMenuTriggerStyle(), "group", className)}
+    className={cn(navigationMenuTriggerStyle(), "group relative before:content-[''] before:absolute before:w-0 before:h-0 before:top-[100px] data-[active]:before:top-[88px] data-[state=open]:before:top-[88px] data-[state=open]:before:opacity-100 before:start-1/2 before:-translate-x-1/2 before:opacity-0 before:border-b-[10px] before:transition-all before:ease-in before:duration-50 before:border-b-white before:border-x-[12px] before:border-x-transparent before:border-solid", className)}
     {...props}
   >
     {children}{""}
@@ -92,7 +92,7 @@ const NavigationMenuViewport = React.forwardRef<
     <div className="overflow-hidden p-2">
       <NavigationMenuPrimitive.Viewport
         className={cn(
-          "origin-top-center relative shadow-[0px_0px_10px_0px_rgba(0,0,0,0.075)] mt-1.5 h-[var(--radix-navigation-menu-viewport-height)] w-full rounded-[16px] border-none bg-white text-dark data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 md:w-[var(--radix-navigation-menu-viewport-width)] dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-50 before:content-[''] before:absolute before:w-0 before:h-0 before:-top-[9px] before:start-[5%] before:border-b-[10px] before:border-b-white before:border-x-[12px] before:border-x-transparent before:border-solid overflow-visible",
+          "origin-top-center relative shadow-[0px_0px_10px_0px_rgba(0,0,0,0.075)] mt-1.5 h-[var(--radix-navigation-menu-viewport-height)] w-full rounded-[16px] border-none bg-white text-dark data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 md:w-[var(--radix-navigation-menu-viewport-width)] dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-50 overflow-visible",
           className
         )}
         ref={ref}

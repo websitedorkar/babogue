@@ -1,5 +1,6 @@
 import AngleRight from './img/angle-right.svg';
 import SlideBanner from './img/slide-banner.webp';
+import SlideBannerMobile from './img/slide-banner-mobile.png';
 
 interface SlidesJSON {
   id: number;
@@ -11,7 +12,8 @@ interface SlidesJSON {
   className?: string;
   button__label?: string;
   button__url?: string;
-  banner: any;
+  bannerDesktop: any;
+  bannerMobile: any;
 }
 
 const slidesdata: SlidesJSON[] = [
@@ -32,7 +34,8 @@ const slidesdata: SlidesJSON[] = [
     ],
     button__label: 'Our Courses',
     button__url: '#',
-    banner: SlideBanner,
+    bannerDesktop: SlideBanner,
+    bannerMobile: SlideBannerMobile,
   },
   {
     id: 2,
@@ -51,7 +54,8 @@ const slidesdata: SlidesJSON[] = [
     ],
     button__label: 'Our Courses',
     button__url: '#',
-    banner: SlideBanner,
+    bannerDesktop: SlideBanner,
+    bannerMobile: SlideBannerMobile,
   },
   {
     id: 3,
@@ -70,7 +74,8 @@ const slidesdata: SlidesJSON[] = [
     ],
     button__label: 'Our Courses',
     button__url: '#',
-    banner: SlideBanner,
+    bannerDesktop: SlideBanner,
+    bannerMobile: SlideBannerMobile,
   },
 ]
 
