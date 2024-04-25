@@ -56,7 +56,7 @@ const HeroCarousel = () => {
                                 return (
                                     <SwiperSlide key={slide.id} style={{ backgroundColor: slide.background ?? '#C1DED5', backgroundImage: `url(${Pattern.src})` }}>
                                         <div className="container">
-                                            <div className="grid grid-cols-1 gap-y-[15px] lg:gap-y-[70px] lg:grid-cols-[0.75fr_1fr] min-h-[72vh]">
+                                            <div className="grid grid-cols-1 gap-y-[15px] lg:gap-y-[70px] lg:grid-cols-[0.75fr_1fr] min-h-[680px]">
                                                 <div
                                                 className="slide__content pt-[40px] lg:pb-[100px] flex flex-col justify-center">
                                                     {slide.caption && <h6 className='text-primary text-sm md:text-xl font-normal mb-2'>{slide.caption}</h6>}
