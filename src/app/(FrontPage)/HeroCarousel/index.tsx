@@ -47,10 +47,10 @@ const HeroCarousel = () => {
                             // install Swiper modules
                             pagination={{ clickable: true }}
                             speed={500}
-                            autoplay={{
-                              delay: 5000,
-                              disableOnInteraction: false,
-                            }}
+                            // autoplay={{
+                            //   delay: 5000,
+                            //   disableOnInteraction: false,
+                            // }}
                         >
                             {slidesdata.map((slide) => {
                                 return (
@@ -73,7 +73,7 @@ const HeroCarousel = () => {
                                                     </div>}
                                                 </div>
                                                 <div className="relative lg:pt-[60px] flex flex-col justify-end">
-                                                    <div className="slide__banner">
+                                                    <div className="slide__banner lg:-me-[13%]">
                                                         <Image src={isMobile ? slide.bannerMobile : slide.bannerDesktop} alt="Banner" className='max-w-[100%] mx-auto' />
                                                     </div>
                                                 </div>

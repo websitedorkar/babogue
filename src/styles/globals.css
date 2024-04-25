@@ -98,18 +98,22 @@
 }
 
 /* HERO CAROUSEL */
-.hero-carousel .swiper-pagination-bullets.swiper-pagination-horizontal {
-  --swiper-pagination-bullet-size: 14px;
-  --swiper-pagination-bullet-inactive-opacity: 0.3;
-  @apply flex md:flex-col gap-3 lg:gap-6 md:h-full justify-center items-end bottom-[30px] md:bottom-1/2 md:translate-y-1/2 md:max-w-[100px] md:start-auto md:right-0 md:p-4
-}
+@media screen and (min-width: 991px) {
 
-.hero-carousel .swiper-pagination .swiper-pagination-bullet {
-  @apply bg-dark relative before:content-[''] before:absolute before:border-2 before:border-solid before:border-dark before:w-full before:h-full before:start-1/2 before:top-1/2 before:-translate-y-1/2 before:-translate-x-1/2 before:rounded-full before:transition-all before:ease-linear before:duration-150
-}
+  .hero-carousel .swiper-pagination-bullets.swiper-pagination-horizontal {
+    --swiper-pagination-bullet-size: 14px;
+    --swiper-pagination-bullet-inactive-opacity: 0.3;
+    @apply flex md:flex-col gap-3 lg:gap-4 md:h-full justify-center items-end bottom-[30px] md:bottom-1/2 md:translate-y-1/2 md:max-w-[100px] md:start-auto md:right-0 md:p-4
+  }
 
-.hero-carousel .swiper-pagination .swiper-pagination-bullet-active {
-  @apply before:w-[calc(100%+10px)] before:h-[calc(100%+10px)]
+  .hero-carousel .swiper-pagination .swiper-pagination-bullet {
+    @apply bg-dark relative before:content-[''] before:absolute before:border-2 before:border-solid before:border-dark before:w-full before:h-full before:start-1/2 before:top-1/2 before:-translate-y-1/2 before:-translate-x-1/2 before:rounded-full before:transition-all before:ease-linear before:duration-150
+  }
+
+  .hero-carousel .swiper-pagination .swiper-pagination-bullet-active {
+    @apply before:w-[calc(100%+10px)] before:h-[calc(100%+10px)]
+  }
+
 }
 
 .rating--list {
