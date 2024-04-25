@@ -49,7 +49,7 @@ const NavigationMenuTrigger = React.forwardRef<
 >(({ className, children, ...props }, ref) => (
   <NavigationMenuPrimitive.Trigger
     ref={ref}
-    className={cn(navigationMenuTriggerStyle(), "group relative before:content-[''] before:absolute before:w-0 before:h-0 before:top-[100px] data-[active]:before:top-[88px] data-[state=open]:before:top-[88px] data-[state=open]:before:opacity-100 before:start-1/2 before:-translate-x-1/2 before:opacity-0 before:border-b-[10px] before:transition-all before:ease-in before:duration-50 before:border-b-white before:border-x-[12px] before:border-x-transparent before:border-solid", className)}
+    className={cn(navigationMenuTriggerStyle(), "group relative before:content-[''] before:absolute before:w-0 before:h-0 before:top-[100px] data-[active]:before:top-[88px] data-[state=open]:before:top-[88px] data-[state=open]:before:opacity-100 before:start-1/2 before:-translate-x-1/2 before:opacity-0 before:border-b-[10px] before:transition-all before:ease-in before:duration-50 before:border-b-white before:border-x-[12px] before:border-x-transparent before:border-solid data-[state=closed]:after:content-[unset] data-[state=open]:after:content-[''] after:w-full after:h-full after:pointer-events-none after:bg-black/10 after:fixed after:top-0 after:start-0 after:z-[-1]", className)}
     {...props}
   >
     {children}{""}
@@ -92,7 +92,7 @@ const NavigationMenuViewport = React.forwardRef<
     <div className="overflow-hidden p-2">
       <NavigationMenuPrimitive.Viewport
         className={cn(
-          "origin-top-center relative shadow-[0px_0px_10px_0px_rgba(0,0,0,0.075)] mt-1.5 h-[var(--radix-navigation-menu-viewport-height)] w-full rounded-[16px] border-none bg-white text-dark data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 md:w-[var(--radix-navigation-menu-viewport-width)] dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-50 overflow-visible",
+          "origin-top-center relative mt-1.5 h-[var(--radix-navigation-menu-viewport-height)] w-full rounded-[16px] border-none bg-white text-dark data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 md:w-[var(--radix-navigation-menu-viewport-width)] dark:border-neutral-800 dark:bg-neutral-950 dark:text-neutral-50 overflow-visible",
           className
         )}
         ref={ref}

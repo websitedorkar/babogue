@@ -98,8 +98,20 @@
 }
 
 /* HERO CAROUSEL */
-@media screen and (min-width: 991px) {
 
+@media screen and (max-width: 991px) {
+  .hero-carousel .swiper-pagination-bullets.swiper-pagination-horizontal {
+    --swiper-pagination-bullet-size: 14px;
+    --swiper-pagination-bullet-inactive-opacity: 0.3;
+    @apply absolute bottom-7
+  }
+
+  .hero-carousel .swiper-pagination .swiper-pagination-bullet {
+    @apply bg-white
+  }
+}
+
+@media screen and (min-width: 992px) {
   .hero-carousel .swiper-pagination-bullets.swiper-pagination-horizontal {
     --swiper-pagination-bullet-size: 14px;
     --swiper-pagination-bullet-inactive-opacity: 0.3;
