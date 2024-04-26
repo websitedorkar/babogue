@@ -11,6 +11,7 @@ interface FormData {
 const SearchForm: React.FC = () => {
   const { register, handleSubmit } = useForm<FormData>();
   const [searchQuery, setSearchQuery] = useState<string>('');
+  const [showOverlay, setShowOverlay] = useState<boolean>(false);
 
   const onSubmit = (formData: FormData) => {
     const { searchQuery } = formData;
@@ -29,12 +30,17 @@ const SearchForm: React.FC = () => {
 
     setSearchQuery('');
   }
+  
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className='bg-white border border-border rounded-[16px] lg:rounded-full inline-flex items-center gap-3 px-6 py-2 w-full lg:w-auto h-[55px] lg:h-[48px]'>
+    <>
+    {showOverlay && <div className="fixed w-full h-full bg-black bg-opacity-70 z-[20] start-0 top-0"></div>}
+    <form onSubmit={handleSubmit(onSubmit)} className={`bg-white border border-border rounded-[16px] lg:rounded-full inline-flex items-center gap-3 px-6 py-2 w-full lg:w-auto h-[55px] lg:h-[48px] relative ${showOverlay ? 'z-[25]' : 'z-0' }`}>
       <input
         type='text'
         {...register('searchQuery')}
         value={searchQuery}
+        onFocus={() => setShowOverlay(true)}
+        onBlur={() => setShowOverlay(false)}
         onChange={(e) => setSearchQuery(e.target.value)}
         className='border-none shadow-none outline-none bg-transparent w-full lg:w-auto lg:min-w-[140px] lg:max-w-[140px] transition-all ease-linear duration-200 focus:lg:min-w-[200px] focus:lg:max-w-[200px]'
         placeholder='Search course...'
@@ -43,6 +49,7 @@ const SearchForm: React.FC = () => {
         <Image src={SearchIcon} alt='Submit Now' className='w-[20px] min-w-[20px]' />
       </button>
     </form>
+    </>
   );
 };
 
