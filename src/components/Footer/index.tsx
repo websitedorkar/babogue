@@ -11,6 +11,7 @@ import { useMediaQuery } from '@/hooks/use-media-query';
 import Toolbar from './Toolbar';
 
 const Footer = () => {
+    const isTablet = useMediaQuery("(max-width: 1140px)");
     const isMobile = useMediaQuery("(max-width: 768px)");
 
     return (
@@ -97,27 +98,12 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-                
-                {/* Brands */}
-                <div className='pt-[50px] pb-[90px] md:pb-[10px]'>
-                    <div className="container">
-                        {brands && 
-                            <div className='flex justify-evenly flex-wrap gap-2 lg:flex-nowrap'>
-                                {brands.map((brand => (
-                                    <div className='w-[calc(50%-0.5rem)] bg-white md:w-[25%] rounded flex justify-center items-center py-3' key={brand.id}>
-                                        <Image src={brand.thumbnail} className='h-[50px] w-auto' alt={brand.title ?? ''}/>
-                                    </div>
-                                )))}
-                            </div>
-                        }
-                    </div>
-                </div>
-                { isMobile && <Toolbar />
+                { isTablet && <Toolbar />
                 }
             </footer >
                 
             {/* Brands */}
-            {/* <div className='bg-white text-dark pt-[10px] pb-[90px] md:pb-[10px]'>
+            <div className='bg-white text-dark pt-[10px] pb-[90px] md:pb-[10px]'>
                 <div className="container">
                     {brands && 
                         <div className='flex justify-evenly flex-wrap'>
@@ -129,7 +115,7 @@ const Footer = () => {
                         </div>
                     }
                 </div>
-            </div> */}
+            </div>
         </>
     )
 }
