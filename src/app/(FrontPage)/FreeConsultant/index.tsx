@@ -16,7 +16,7 @@ import BottomShapeMobile from './img/shape-bottom-mobile.svg';
 const FreeConsultant = () => {
     const isMobile = useMediaQuery("(max-width: 667px)");
     return (
-        <section className='bg-[#C1DED5] pt-[50px] relative overflow-hidden' style={{ backgroundImage: `url(${Pattern.src})` }}>
+        <section className='bg-[#C1DED5] pt-[60px] relative overflow-hidden' style={{ backgroundImage: `url(${Pattern.src})` }}>
             {isMobile ?
                 <>
                 <Image src={TopShapeMobile} alt={"Shape Top"} className='-top-[1px] start-0 end-0 w-full absolute' />
@@ -30,7 +30,7 @@ const FreeConsultant = () => {
             }
             <div className="container">
                 <div className="grid md:grid-cols-[3fr_4fr] lg:grid-cols-[415px_1fr] items-center">
-                    <div className="text-center pt-[50px] md:pb-[100px] lg:pb-[30px] lg:min-h-[75vh] flex flex-col justify-center items-center">
+                    <div className="text-center lg:min-h-[570px] flex flex-col justify-center items-center">
                         <Image src={BabySleeping} alt={"Shape Top"} className='inline-block w-[110px] md:w-[205px] max-w-[35%] mb-4' />
                         <h2 className='text-2xl lg:text-4xl leading-9 xl:text-5xl font-quicksand font-bold text-dark mb-2'>Start a Free Consult</h2>
                         <p className='text-sm lg:text-xl leading-5 lg:leading-7 mb-6'>Conquer nighttime sleep, solve early rising, land naps, and deal with regressions.</p>

@@ -49,7 +49,7 @@ const NavigationMenuTrigger = React.forwardRef<
 >(({ className, children, ...props }, ref) => (
   <NavigationMenuPrimitive.Trigger
     ref={ref}
-    className={cn(navigationMenuTriggerStyle(), "group relative z-[0] data-[state=open]:z-[1] before:content-[''] before:absolute before:w-0 before:h-0 before:top-[100px] data-[active]:before:top-[88px] data-[state=open]:before:top-[88px] data-[state=open]:before:opacity-100 before:start-1/2 before:-translate-x-1/2 before:opacity-0 before:border-b-[10px] before:transition-all before:ease-in before:duration-50 before:border-b-white before:border-x-[12px] before:border-x-transparent before:border-solid data-[state=closed]:after:content-[unset] data-[state=open]:after:content-[''] after:w-full after:h-full after:pointer-events-none after:bg-black/70 after:fixed after:top-0 after:start-0 after:z-[-1]", className)}
+    className={cn(navigationMenuTriggerStyle(), "group relative z-[0] data-[state=open]:z-[1] before:content-[''] before:absolute before:w-0 before:h-0 before:top-[100px] data-[active]:before:top-[76px] data-[state=open]:before:top-[76px] data-[state=open]:before:opacity-100 before:start-1/2 before:-translate-x-1/2 before:opacity-0 before:border-b-[10px] before:transition-all before:ease-in before:duration-50 before:border-b-white before:border-x-[12px] before:border-x-transparent before:border-solid data-[state=closed]:after:content-[unset] data-[state=open]:after:content-[''] after:w-full after:h-full after:pointer-events-none after:bg-black/70 after:fixed after:top-0 after:start-0 after:z-[-1]", className)}
     {...props}
   >
     {children}{""}
@@ -88,7 +88,7 @@ const NavigationMenuViewport = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Viewport>,
   React.ComponentPropsWithoutRef<typeof NavigationMenuPrimitive.Viewport>
 >(({ className, ...props }, ref) => (
-  <div className={cn("absolute left-0 top-full flex justify-start z-[2] mt-11")}>
+  <div className={cn("absolute left-0 top-full flex justify-start z-[2] mt-8")}>
     <div className="overflow-hidden p-2">
       <NavigationMenuPrimitive.Viewport
         className={cn(

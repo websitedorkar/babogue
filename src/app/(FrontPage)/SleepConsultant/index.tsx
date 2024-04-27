@@ -27,6 +27,8 @@ const SleepConsultant = () => {
     
     return (
         <>
+        {/* {isOpen && <div className="fixed w-full h-full bg-black bg-opacity-70 z-20 start-0 top-0" onClick={togglePopup}></div>} */}
+
         <section className='pt-[60px] pb-[60px] lg:pb-[100px] bg-white relative px-[30px] md:px-0'>
             <div className="container">
                 <div className="grid grid-cols-1 gap-y-[30px] lg:grid-cols-2 items-center gap-4 xl:gap-x-[90px]">
@@ -99,20 +101,20 @@ const SleepConsultant = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className='fixed top-0 start-0 w-full flex justify-center z-[99] items-center min-h-screen'
+            className='fixed top-0 start-0 w-full flex justify-center z-40 items-center min-h-screen'
             >
             <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 0.7 }}
                 exit={{ opacity: 0 }}
-                className="bg-black w-full h-full absolute bg-opacity-100"
+                className="bg-black w-full h-full absolute bg-opacity-100 z-20"
                 onClick={togglePopup}
             ></motion.div>
             <motion.div
                 initial={{ opacity: 0, scale: 0.5 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.5 }}
-                className="relative bg-white w-full max-w-[60rem] lg:min-h-[60vh] m-3"
+                className="relative bg-white w-full max-w-[60rem] lg:min-h-[60vh] m-3 z-30"
             >
                 <div className="pb-[56.25%]">
                 <iframe className='absolute h-full w-full' width="560" height="315" src="https://www.youtube.com/embed/muDpH2Ty2tg?si=0BQvS79QIiPd5IDF" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>

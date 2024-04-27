@@ -33,8 +33,7 @@ const SearchForm: React.FC = () => {
   
   return (
     <>
-    {showOverlay && <div className="fixed w-full h-full bg-black bg-opacity-70 z-[20] start-0 top-0"></div>}
-    <form onSubmit={handleSubmit(onSubmit)} className={`bg-white border border-border rounded-[16px] lg:rounded-full inline-flex items-center gap-3 px-6 py-2 w-full lg:w-auto h-[55px] lg:h-[48px] relative ${showOverlay ? 'z-[25]' : 'z-0' }`}>
+    <form onSubmit={handleSubmit(onSubmit)} className={`bg-white border border-transparent lg:border-border rounded-[16px] lg:rounded-full inline-flex items-center gap-3 px-6 py-2 w-full lg:w-auto h-[55px] lg:h-[48px] relative ${showOverlay ? 'z-[25]' : 'z-0' }`}>
       <input
         type='text'
         {...register('searchQuery')}

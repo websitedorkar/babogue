@@ -167,7 +167,7 @@ const Header = () => {
                 paddingBottom: headerHeight + 'px',
             }}>
                 <motion.header
-                    className={`header absolute top-0 start-0 end-0 w-full bg-white z-[20] ${isDesktop && isScrolled != 'hidden' ? 'header--sticky direction-' + isScrolled : ''}`}
+                    className={`header absolute top-0 start-0 end-0 w-full bg-white z-10 ${isDesktop && isScrolled != 'hidden' ? 'header--sticky direction-' + isScrolled : ''}`}
                     initial={{ opacity: 1 }}
                     animate={controls}
                 >

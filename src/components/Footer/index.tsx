@@ -15,7 +15,7 @@ const Footer = () => {
 
     return (
         <>
-            <footer className='lg:sticky lg:bottom-0 z-1 footer bg-primary px-[5px] md:px-0 text-white pt-[35px] md:pt-[70px] pb-[25px]'>
+            <footer className='lg:sticky lg:bottom-0 z-[-1] footer bg-primary px-[5px] md:px-0 text-white pt-[35px] md:pt-[70px] pb-[25px]'>
                 <div className="container">
                     <div className='lg:grid-cols-none lg:grid-flow-col grid grid-cols-[5fr_6fr] md:grid-cols-3 gap-y-10 gap-x-2 md:gap-x-8'>
                         {
@@ -97,12 +97,27 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
+                
+                {/* Brands */}
+                <div className='pt-[50px] pb-[90px] md:pb-[10px]'>
+                    <div className="container">
+                        {brands && 
+                            <div className='flex justify-evenly flex-wrap gap-2 lg:flex-nowrap'>
+                                {brands.map((brand => (
+                                    <div className='w-[calc(50%-0.5rem)] bg-white md:w-[25%] rounded flex justify-center items-center py-3' key={brand.id}>
+                                        <Image src={brand.thumbnail} className='h-[50px] w-auto' alt={brand.title ?? ''}/>
+                                    </div>
+                                )))}
+                            </div>
+                        }
+                    </div>
+                </div>
                 { isMobile && <Toolbar />
                 }
             </footer >
                 
             {/* Brands */}
-            <div className='bg-white text-dark pt-[10px] pb-[90px] md:pb-[10px]'>
+            {/* <div className='bg-white text-dark pt-[10px] pb-[90px] md:pb-[10px]'>
                 <div className="container">
                     {brands && 
                         <div className='flex justify-evenly flex-wrap'>
@@ -114,7 +129,7 @@ const Footer = () => {
                         </div>
                     }
                 </div>
-            </div>
+            </div> */}
         </>
     )
 }

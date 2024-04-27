@@ -195,27 +195,31 @@ const Toggler: React.FC = () => {
   }, []);
 
   return (
-    <div className="relative flex justify-end">
-      <ButtonToggle toggle={() => toggleMenu()} isOpen={isOpen} buttonRef={buttonRef}/>
+    <>
+        {isOpen && <div className="fixed w-full h-full bg-black bg-opacity-70 z-20 start-0 top-0"></div>}
+      <div className="relative flex justify-end">
+        <ButtonToggle toggle={() => toggleMenu()} isOpen={isOpen} buttonRef={buttonRef}/>
 
-      <motion.div
-        animate={isOpen ? 'open' : 'closed'}
-        variants={{
-          open: { opacity: 1, y: 0 },
-          closed: { opacity: 0, y: '-1rem' },
-        }}
-        className={`absolute bg-white rounded-[18px] end-0 top-[calc(100%+2rem)] text-start px-6 py-3 min-w-[270px] shadow-sm before:content-[''] before:absolute before:w-0 before:h-0 before:-top-[9px] before:end-6 before:border-b-[10px] before:border-b-white before:border-x-[12px] before:border-x-transparent before:border-solid ${isOpen ? 'visible' : 'invisible'}`}
-        ref={menuRef}
-      >
-        {menus && (
-          <ul className='p-0'>
-            {menus.map((menu, idx) => (
-              <MenuLink key={menu.id} index={idx} list={menus} menu={menu}/>
-            ))}
-          </ul>
-        )}
-      </motion.div>
-    </div>
+        <motion.div
+          animate={isOpen ? 'open' : 'closed'}
+          variants={{
+            open: { opacity: 1, y: 0 },
+            closed: { opacity: 0, y: '-1rem' },
+          }}
+          className={`absolute bg-white rounded-[18px] end-0 top-[calc(100%+2.75rem)] text-start px-6 py-3 min-w-[270px] shadow-sm before:content-[''] before:absolute before:w-0 before:h-0 before:-top-[9px] before:end-6 before:border-b-[10px] before:border-b-white before:border-x-[12px] before:border-x-transparent before:border-solid ${isOpen ? 'visible z-30' : 'invisible'}`}
+          ref={menuRef}
+        >
+          {menus && (
+            <ul className='p-0'>
+              {menus.map((menu, idx) => (
+                <MenuLink key={menu.id} index={idx} list={menus} menu={menu}/>
+              ))}
+            </ul>
+          )}
+        </motion.div>
+      </div>
+    </>
+
   );
 };
 

@@ -28,9 +28,9 @@ const HeroCarousel = () => {
     return (
         <section className='pb-0 relative overflow-hidden hero-carousel bg-white'>
             {isMobile ? 
-                <Image src={BottomShapeMobile} alt={"Shape Top"} className='-bottom-[1px] start-0 end-0 w-full absolute z-[6]' />
+                <Image src={BottomShapeMobile} alt={"Shape Top"} className='-bottom-[1px] start-0 end-0 w-full absolute z-[2]' />
             :
-                <Image src={BottomShape} alt={"Shape Top"} className='-bottom-[1px] start-0 end-0 w-full absolute z-[6]' />
+                <Image src={BottomShape} alt={"Shape Top"} className='-bottom-[1px] start-0 end-0 w-full absolute z-[2]' />
             }
 
             <div className="relative">
@@ -86,7 +86,7 @@ const HeroCarousel = () => {
                     </div>
                 }
                 {!isMobile &&
-                    <div className="absolute hidden lg:block start-0 bottom-0 z-10 w-full">
+                    <div className="absolute hidden lg:block start-0 bottom-0 z-[2] w-full">
                         <div className="container">
                             <Image src={babySleeping} alt={"Shape Top"} className='' />
                         </div>

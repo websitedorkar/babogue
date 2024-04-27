@@ -35,6 +35,8 @@ const Search: React.FC = () => {
 
     return (
         <>
+            {showForm && <div className="fixed w-full h-full bg-black bg-opacity-70 z-[20] start-0 top-0"></div>}
+
             <div className='flex lg:hidden'>
                 <Button variant={'ghost'} className="p-0 h-auto" onClick={toggleForm} ref={buttonRef}>
                     <Image src={BUTTON_SEARCH} alt={'search'} />
@@ -46,7 +48,7 @@ const Search: React.FC = () => {
                         open: { opacity: 1, y: 0 },
                         closed: { opacity: 0, y: '-1rem' },
                     }}
-                    className={`absolute top-[calc(100%+1.25rem)] start-0 w-full ${showForm ? 'visible' : 'invisible'}`}
+                    className={`absolute top-[calc(100%+1.75rem)] start-0 w-full ${showForm ? 'visible z-30' : 'invisible'}`}
                 >
                     <div className="container" ref={formRef}>
                         <div className="relative bg-white rounded-[16px] before:content-[''] before:absolute before:w-0 before:h-0 before:-top-[9px] before:start-4 before:border-b-[10px] before:border-b-white before:border-x-[12px] before:border-x-transparent before:border-solid">

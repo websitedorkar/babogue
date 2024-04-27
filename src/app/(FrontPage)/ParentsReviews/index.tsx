@@ -31,7 +31,7 @@ const ParentsReviews = () => {
     const isMobile = useMediaQuery("(max-width: 768px)");
 
     return (
-        <section className='pt-[60px] pb-[100px] px-[15px] md:px-0 md:py-[130px] bg-primary text-white relative overflow-hidden'>
+        <section className='pt-[70px] pb-[70px] md:py-[130px] bg-primary text-white relative overflow-hidden'>
             {isMobile ?
                 <>
                 <Image src={TopShapeMobile} alt={"Shape Top"} className='-top-[1px] start-0 end-0 w-full absolute' />
@@ -47,7 +47,7 @@ const ParentsReviews = () => {
 
             <div className="container">
                 {/* Section Heading */}
-                <div className="section-title mb-[20px] text-center">
+                <div className="section-title mb-[15px] lg:mb-[20px] text-center">
                     <h2 className='display-2 text-white'>What Parents Are Saying</h2>
                 </div>
 
@@ -80,15 +80,15 @@ const ParentsReviews = () => {
                                 1280: {
                                     slidesPerView: 4,
                                     spaceBetween: 20,
-                                    pagination: false
+                                    // pagination: false
                                 },
                             }}
                         >
                             {reviewsdata.map((item) => {
                                 return (
                                     <SwiperSlide key={item.id}>
-                                        <div className="bg-white text-dark rounded-[24px] p-4 h-full flex flex-col">
-                                            <div className="flex items-center justify-between gap-2 mb-5">
+                                        <div className="bg-white text-dark rounded-[12px] p-4 h-full flex flex-col">
+                                            <div className="flex items-center justify-between gap-2 mb-3 lg:mb-5">
                                                 {item.rating && <span className='rating--list' dangerouslySetInnerHTML={{ __html: Config.starRating(item.rating) }} />}
                                                 <span className='w-[19px] h-[19px] rounded-full'>
                                                     <Image src={Google} alt={"Google"} className='max-w-full h-auto' />
@@ -120,16 +120,16 @@ const ParentsReviews = () => {
                             })}
                         </Swiper>
 
-                        <div className='absolute top-1/2 z-10 start-0 hidden lg:flex items-center justify-between w-full end-0'>
+                        <div className='absolute top-1/2 z-[2] start-0 hidden lg:flex items-center justify-between w-full end-0'>
                             <span className='parents-review-carousel--prev cursor-pointer opacity-30 w-[38px] min-w-[38px] -ms-[75px] hover:opacity-75 transition-all duration-300 ease-linear inline-flex'><Image src={BackIcon} alt={'Back Icon'} /></span>
                             <span className='parents-review-carousel--next cursor-pointer opacity-30 w-[38px] min-w-[38px] -me-[75px] hover:opacity-75 transition-all duration-300 ease-linear inline-flex'><Image src={NextIcon} alt={'Back Icon'} /></span>
                         </div>
                     </div>
                 }
 
-                <div className="text-center mt-10">
+                <div className="text-center mt-6">
                     <Link href={'#'}>
-                        <Button variant={'outline'} size={'lg'} className='bg-transparent hover:text-primary hover:outline-primary'>BROWSE ALL REVIEWS</Button>
+                        <Button variant={'outline'} size={'lg'} className='bg-transparent font-semibold border-2 border-slate-100 hover:text-primary hover:outline-primary'>BROWSE ALL REVIEWS</Button>
                     </Link>
                 </div>
             </div>

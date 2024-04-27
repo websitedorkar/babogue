@@ -29,7 +29,7 @@ const BlogArticles = () => {
     const isMobile = useMediaQuery("(max-width: 768px)");
 
     return (
-        <section className='pt-[50px] px-[15px] md:px-0 md:pt-[100px] pb-[70px] md:pb-[120px] bg-sky relative overflow-hidden'>
+        <section className='pt-[70px] px-[15px] md:px-0 md:pt-[100px] pb-[70px] md:pb-[120px] bg-sky relative overflow-hidden'>
             {isMobile ?
                 <>
                 <Image src={TopShapeMobile} alt={"Shape Top"} className='-top-[1px] start-0 end-0 w-full absolute' />
@@ -43,7 +43,7 @@ const BlogArticles = () => {
             }
             <div className="container">
                 {/* Section Heading */}
-                <div className="section-title mb-10 text-center">
+                <div className="section-title mb-[20px] lg:mb-10 text-center">
                     <h2 className='display-2 mb-2'>Blog Articles</h2>
                 </div>
 
@@ -71,14 +71,14 @@ const BlogArticles = () => {
                                 1024: {
                                     slidesPerView: 3,
                                     spaceBetween: 30,
-                                    pagination: false
+                                    // pagination: false
                                 },
                             }}
                         >
                             {articlesdata.map((article) => {
                                 return (
                                     <SwiperSlide key={article.id}>
-                                        <div className="bg-white text-dark rounded-[16px] p-3 h-full flex flex-col">
+                                        <div className="bg-white text-dark rounded-[16px] p-[8px] pb-[15px] lg:p-3 h-full flex flex-col">
                                             {/* Thumbnail */}
                                             {article.thumbnail &&
                                                 <div className="mb-5 relative">
@@ -103,16 +103,16 @@ const BlogArticles = () => {
                             })}
                         </Swiper>
 
-                        <div className='absolute top-1/2 z-10 start-0 hidden lg:flex items-center justify-between w-full end-0'>
+                        <div className='absolute top-1/2 z-[2] start-0 hidden lg:flex items-center justify-between w-full end-0'>
                             <span className='blogs-carousel--prev cursor-pointer opacity-30 w-[38px] min-w-[38px] -ms-[75px] hover:opacity-75 transition-all duration-300 ease-linear inline-flex'><Image src={BackIcon} alt={'Back Icon'} /></span>
                             <span className='blogs-carousel--next cursor-pointer opacity-30 w-[38px] min-w-[38px] -me-[75px] hover:opacity-75 transition-all duration-300 ease-linear inline-flex'><Image src={NextIcon} alt={'Back Icon'} /></span>
                         </div>
                     </div>
                 }
 
-                <div className="text-center mt-10">
+                <div className="text-center mt-6 lg:mt-10">
                     <Link href={'#'}>
-                        <Button variant={'outline'} size={'lg'} className='bg-transparent border-dark hover:bg-dark hover:text-white hover:outline-dark'>BROWSE ALL ARTICLES</Button>
+                        <Button variant={'outline'} size={'lg'} className='bg-transparent font-semibold border-2 border-dark hover:bg-dark hover:text-white hover:outline-dark'>BROWSE ALL ARTICLES</Button>
                     </Link>
                 </div>
             </div>
