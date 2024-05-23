@@ -15,7 +15,7 @@ const SleepSeries = () => {
                         <p>We have helped thousands of families globally achieve the Gift of Sleep in their homes. In fact, 94% of families who use our Sleep Series courses report better sleep as a result.</p>
                     </div>
                 </div>
-                <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr)_)] md:grid-cols-[repeat(auto-fill,minmax(200px,1fr)_)] gap-y-[35px] gap-[15px] text-center">
+                <div className="row-cols-5 gap-y-[35px] justify-center text-center">
                     {productsdata && productsdata.map(product => (
                         <ProductCard key={product.id} product={product}/>
                     ))}

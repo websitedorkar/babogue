@@ -12,9 +12,16 @@ const RecentOrders = () => {
                     <h2 className='display-2'>Courses Your Ordered Before</h2>
                 </div>
                 
-                <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr)_)] md:grid-cols-[repeat(auto-fill,minmax(200px,1fr)_)] gap-y-6 lg:gap-y-10 gap-[15px] text-center">
-                    {productsdata && productsdata.map(product => (
-                        <ProductCard key={product.id} product={product}/>
+                {/*                 
+                    <div className="grid grid-cols-[repeat(auto-fill,minmax(300px,1fr)_)] md:grid-cols-[repeat(auto-fill,minmax(200px,1fr)_)] gap-y-6 lg:gap-y-10 gap-[15px] text-center">
+                    {productsdata && productsdata.map((product, index) => (
+                        <ProductCard key={product.id ?? index} product={product}/>
+                    ))}
+                </div> */}
+                
+                <div className="row-cols-5 gap-y-[1rem] justify-center text-center">
+                    {productsdata && productsdata.map((product, index) => (
+                        <ProductCard key={product.id ?? index} product={product}/>
                     ))}
                 </div>
             </div>

@@ -243,3 +243,17 @@
 .has-submenu:hover .submenu {
   @apply visible opacity-100 top-full
 }
+
+.row-cols-5 {
+  @apply flex flex-wrap mt-[calc(-1*_var(--row-gutter-y))] mr-[calc(-0.5*_var(--row-gutter-x))] ml-[calc(-0.5*_var(--row-gutter-x))];
+  --row-gutter-x: 1rem;
+  --row-gutter-y: 0;
+}
+
+.row-cols-5 .product-card {
+  @apply flex-[0_0_auto] w-full md:w-1/3 lg:w-1/4 xl:w-1/5;
+}
+
+.row-cols-5>* {
+  @apply shrink-0 w-full max-w-full pr-[calc(var(--row-gutter-x)*_0.5)] pl-[calc(var(--row-gutter-x)*_0.5)] mt-[var(--row-gutter-y)];
+}

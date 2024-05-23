@@ -64,32 +64,34 @@ const ProductAction: React.FC<{ price: number; button_label: string, button_url:
 //   md:border-b md:border-border md:pb-3 mb-2
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   return (
-    <div className="grid grid-cols-[2fr_5fr] md:flex md:flex-col border border-solid border-border rounded-[16px] px-3 lg:px-3 md:py-3 md:pt-6 relative z-[1] bg-white">
-         {product.badge && <div className='hidden md:block'><ProductBadge heading={product.badge} /></div>}
-        {product.banner && <ProductMedia fadedImage={product.fadedImage} heading={product.name} thumbnail={product.banner} />}
-        
-         {/* Mobile View */}
-         <div  className='block md:hidden'>
-            {product.description && <div className='mb-2'>
-                <ProductInfo badge={product.badge} description={product.description}/>
-                </div>
-            }
-            {product.price_from && <div className='mt-auto md:border-t md:border-border md:pt-2'>
-                <ProductAction purchased={product.purchased} price={product.price_from}  button_label={'Buy Now'}  button_url={'#'} />
-                </div>}
-         </div>
+    <div className="product-card">
+      <div className="h-full grid grid-cols-[2fr_5fr] md:flex md:flex-col border border-solid border-border rounded-[16px] px-3 lg:px-3 md:py-3 md:pt-6 relative z-[1] bg-white">
+          {product.badge && <div className='hidden md:block'><ProductBadge heading={product.badge} /></div>}
+          {product.banner && <ProductMedia fadedImage={product.fadedImage} heading={product.name} thumbnail={product.banner} />}
+          
+          {/* Mobile View */}
+          <div  className='block md:hidden'>
+              {product.description && <div className='mb-2'>
+                  <ProductInfo badge={product.badge} description={product.description}/>
+                  </div>
+              }
+              {product.price_from && <div className='mt-auto md:border-t md:border-border md:pt-2'>
+                  <ProductAction purchased={product.purchased} price={product.price_from}  button_label={'Buy Now'}  button_url={'#'} />
+                  </div>}
+          </div>
 
-         {/* Desktop View */}
-         <>
-            {/* {product.banner && <ProductMedia heading={product.name} thumbnail={product.banner} />} */}
-            {product.description && <div className='hidden md:block mb-2'>
-                <ProductInfo badge={product.badge} description={product.description}/>
-                </div>
-            }
-            {product.price_from && <div className='mt-auto hidden md:block md:border-t md:border-border md:pt-3'>
-                <ProductAction purchased={product.purchased} price={product.price_from}  button_label={'Buy Now'}  button_url={'#'} />
-                </div>}
-         </>
+          {/* Desktop View */}
+          <>
+              {/* {product.banner && <ProductMedia heading={product.name} thumbnail={product.banner} />} */}
+              {product.description && <div className='hidden md:block mb-2'>
+                  <ProductInfo badge={product.badge} description={product.description}/>
+                  </div>
+              }
+              {product.price_from && <div className='mt-auto hidden md:block md:border-t md:border-border md:pt-3'>
+                  <ProductAction purchased={product.purchased} price={product.price_from}  button_label={'Buy Now'}  button_url={'#'} />
+                  </div>}
+          </>
+      </div>
     </div>
   );
 };
