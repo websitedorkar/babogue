@@ -5,7 +5,6 @@ import LOGO from './img/logo.svg';
 import TopShape from './img/shape-top.svg';
 import TopShapeMobile from './img/shape-top-mobile.svg';
 import Image from 'next/image';
-import Navbar from './Navbar';
 import {
     DropdownMenu,
     DropdownMenuContent,
