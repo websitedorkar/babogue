@@ -102,22 +102,22 @@ const Footer = () => {
                 </div>
                 { isTablet && <Toolbar />
                 }
-                
-                {/* Brands */}
-                <div className='bg-white text-dark pt-[10px] pb-[90px] md:pb-[10px]'>
-                    <div className="container">
-                        {brands && 
-                            <div className='flex justify-evenly flex-wrap'>
-                                {brands.map((brand => (
-                                    <div className='w-[50%] md:w-auto flex justify-center items-center' key={brand.id}>
-                                        <Image src={brand.thumbnail} className='h-[50px] w-auto' alt={brand.title ?? ''}/>
-                                    </div>
-                                )))}
-                            </div>
-                        }
-                    </div>
-                </div>
             </footer >
+                
+            {/* Brands */}
+            <div className='lg:sticky lg:bottom-0 z-[-1] bg-white text-dark pt-[10px] pb-[90px] md:pb-[10px]'>
+                <div className="container">
+                    {brands && 
+                        <div className='flex justify-evenly flex-wrap'>
+                            {brands.map((brand => (
+                                <div className='w-[50%] md:w-auto flex justify-center items-center' key={brand.id}>
+                                    <Image src={brand.thumbnail} className='h-[50px] w-auto' alt={brand.title ?? ''}/>
+                                </div>
+                            )))}
+                        </div>
+                    }
+                </div>
+            </div>
         </>
     )
 }
