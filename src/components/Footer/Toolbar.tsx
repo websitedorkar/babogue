@@ -41,7 +41,7 @@ const Toolbar: React.FC = () => {
     <>
         {isOpen && <div className="fixed w-full h-full bg-black bg-opacity-70 z-20 start-0 top-0"></div>}
         <aside className='fixed bottom-0 end-0 start-0 z-20 bg-white text-dark py-1 pb-3 rounded-t-[16px] border border-solid border-border border-b-0'>
-            <div className="container">
+            <div className="container max-w-[480px]">
                 <div className="flex items-center">
                     <Link href={'/'} className="flex-grow text-center">
                         <div className="inline-flex flex-col gap-y-1">
