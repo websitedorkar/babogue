@@ -16,12 +16,13 @@ import {
 } from "@/components/ui/dropdown-menu";
 import Link from 'next/link';
 
-import { rightbars } from "./data.header";
+import { menus, rightbars } from "./data.header";
 import { Button } from '../ui/button';
 import Search from './Search';
 import Toggler from './Toggler';
 import { motion, useAnimation } from 'framer-motion';
 import { useMediaQuery } from '@/hooks/use-media-query';
+import { ChevronDown } from 'lucide-react';
 
 const AnnouncementBar: React.FC<{ text: string }> = ({ text }) => {
     return (
@@ -167,7 +168,7 @@ const Header = () => {
                 paddingBottom: headerHeight + 'px',
             }}>
                 <motion.header
-                    className={`header absolute top-0 start-0 end-0 w-full bg-white z-10 ${isDesktop && isScrolled != 'hidden' ? 'header--sticky direction-' + isScrolled : ''}`}
+                    className={`header absolute top-0 start-0 end-0 w-full z-10 ${isDesktop && isScrolled != 'hidden' ? 'header--sticky direction-' + isScrolled : ''}`}
                     initial={{ opacity: 1 }}
                     animate={controls}
                 >
@@ -200,7 +201,49 @@ const Header = () => {
                     {/* <div className={`header__nav ${isDesktop && isScrolled != 'hidden' ? 'header--sticky direction-' + isScrolled : ''}`}> */}
                     <div className={`header__nav`}>
                         <div className="container">
-                            <div className="hidden lg:block border-t border-border header__navbar"><Navbar /></div>
+                            <div className="hidden lg:block border-t border-border header__navbar">
+                                <nav className="header__nav py-2">
+                                    <ul className="flex items-center">
+                                    {menus.map((menuItem, index) => (
+                                        menuItem.submenu ?
+                                        <li key={menuItem.id ?? index} className="flex-grow has-submenu">
+                                            <Link href={ menuItem.slug } className='NavigationMenuLink px-5 py-1 rounded-full font-semibold inline-flex items-center gap-x-1 hover:bg-primary hover:text-white transition-all duration-200 '>
+                                                { menuItem.title } <ChevronDown className='mt-[4px] submenu--arrow transition-all ease-linear duration-150'/>
+                                            </Link>
+                                            <div className="submenu absolute pt-[2.7rem]">
+                                                <ul className="relative bg-white rounded-2xl shadow-md grid gap-5 p-6 md:w-[400px] lg:w-[935px] lg:grid-cols-2 before:content-['] before:absolute before:-top-[10px] before:w-0 before:h-0 before:start-14 before:opacity-100 before:border-b-[10px] before:transition-all before:ease-in before:duration-50 before:border-b-white before:border-x-[12px] before:border-x-transparent before:border-solid">
+                                                    {menuItem.submenu.map((sub, i) => (
+                                                        <li key={i}>
+                                                            <Link
+                                                                className="border border-border hover:border-primary transition-all duration-75 ease-linear p-4 rounded-[16px] grid gap-4 items-center grid-cols-[100px_1fr]"
+                                                                href={menuItem.slug}
+                                                            >
+                                                                <div>
+                                                                    {sub.thumbnail && <div className='w-[100px] h-[100px] min-[100px] border-[#C1DED5] rounded-full flex items-center justify-center p-[6px] mx-auto border-dashed border-2'>
+                                                                        <Image src={sub.thumbnail} className='inline-block' alt={sub.title ?? ' title'} />
+                                                                    </div>}
+                                                                </div>
+                                                                <div>
+                                                                    {sub.thumbnail && <h3 className="text-xl leading-5 font-bold text-dark mb-2">{sub.title}</h3>}
+                                                                    {sub.description && <div className="text-xs leading-5">{sub.description}</div>}
+                                                                </div>
+                                                            </Link>
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                            <div className='submenu-overlay bg-black bg-opacity-60 fixed start-0 top-0 w-full h-[200vh] z-[9] pointer-events-none'></div>
+                                        </li>
+                                        :
+                                        <li key={menuItem.id ?? index} className="flex-grow">
+                                            <Link href={ menuItem.slug } className='px-5 py-1 rounded-full font-semibold inline-flex items-center gap-x-1 hover:bg-primary hover:text-white transition-all duration-200 '>
+                                                { menuItem.title }
+                                            </Link>
+                                        </li>
+                                    ))}
+                                    </ul>
+                                </nav>
+                            </div>
                         </div>
                     </div>
                 </motion.header>

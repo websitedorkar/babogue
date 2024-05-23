@@ -103,7 +103,7 @@ const Footer = () => {
             </footer >
                 
             {/* Brands */}
-            <div className='bg-white text-dark pt-[10px] pb-[90px] md:pb-[10px]'>
+            <div className='bg-primary text-dark pt-[10px] pb-[90px] md:pb-[10px]'>
                 <div className="container">
                     {brands && 
                         <div className='flex justify-evenly flex-wrap'>

@@ -215,3 +215,31 @@
     transform: translateY(-250px);
   }
 }
+
+.has-submenu .submenu {
+  @apply invisible opacity-0 transition-all duration-200 ease-linear top-[calc(100%+2rem)]
+}
+
+.has-submenu .submenu-overlay {
+  @apply invisible opacity-0 transition-all duration-0 ease-linear
+}
+
+.has-submenu:hover>.NavigationMenuLink {
+  @apply bg-primary text-white
+}
+
+.has-submenu:hover .submenu--arrow {
+  @apply rotate-180 mt-[0px]
+}
+
+.has-submenu:hover {
+  @apply relative z-20
+}
+
+.has-submenu:hover>.submenu-overlay {
+  @apply visible opacity-100 z-[-1]
+}
+
+.has-submenu:hover .submenu {
+  @apply visible opacity-100 top-full
+}
